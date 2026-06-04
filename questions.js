@@ -42,12 +42,13 @@ const QUESTIONS = [
     id: 4,
     tag: 'Behaviour · evolutionary psychology',
     text: 'The facial width-to-height ratio (fWHR) of adult human males is a reliable signature of aggressive behaviour.',
-    verdict: 'faith',
-    oneLiner: 'A widely cited but increasingly contested claim. Original effects do not survive pre-registration, larger samples, or controls for body size and sex.',
-    explanation: 'Early reports (Carré &amp; McCormick, 2008) found fWHR correlated with penalty minutes in hockey players. Subsequent meta-analyses and pre-registered replications report effect sizes near zero once confounds — body mass, age, photo quality, rater — are controlled. The sexual-dimorphism premise has also been challenged: adult fWHR is not reliably larger in men than women.',
+    verdict: 'facts',
+    oneLiner: 'Genuinely debated — but meta-analyses across many samples do find a small, statistically reliable association between fWHR and threat/dominance behaviour, so there is a real (if modest) signal.',
+    explanation: 'The original report (Carré &amp; McCormick, 2008) linked fWHR to aggression in hockey players. Many single studies fail to replicate, and confounds — body mass, sex, photo quality — inflate early effects, which is why the claim stays contested. But the two largest syntheses to date, the meta-analyses of Geniole et al. (2015) and Haselhuhn et al. (2015), both find a small but significant fWHR–threat/aggression association across dozens of samples. On the balance of current evidence the signal is real though weak — exactly the kind of claim reasonable scientists still argue about.',
     refs: [
-      'Kosinski, <em>Psych. Sci.</em> 28 (2017), 1675–1682 — large-sample non-replication.',
-      'Caton, Hannan &amp; Dixson, <em>Psychol. Bull.</em> 148 (2022), 33–60 — meta-analysis.'
+      'Geniole et al., <em>PLoS ONE</em> 10 (2015), e0132726 — meta-analysis: small but significant fWHR–threat association.',
+      'Haselhuhn, Ormiston &amp; Wong, <em>PLoS ONE</em> 10 (2015), e0122637 — meta-analysis: fWHR predicts aggression.',
+      'Carré &amp; McCormick, <em>Proc. R. Soc. B</em> 275 (2008), 2651–2656 — original report.'
     ]
   },
   {
