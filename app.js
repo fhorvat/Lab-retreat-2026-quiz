@@ -12,7 +12,7 @@
 // only, via localStorage) so you can test the flow end-to-end.
 // ============================================================
 
-const GOOGLE_SCRIPT_URL = '';   // <-- paste your Apps Script web-app /exec URL here
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcNjO1tRIIuZGFC6g1ALe-tp6RoxJZNj_hNhTobwE_mApW6_NAdHm8c2BlH8fqnYF8/exec';   // <-- paste your Apps Script web-app /exec URL here
 const POLL_MS = 4000;           // how often phones / presenter poll the backend
 
 // ── Mode & identity ─────────────────────────────────────────
