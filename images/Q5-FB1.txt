@@ -1,0 +1,9 @@
+Architecture of TNTs between cultured PC12 cells. Wheat germ agglutinin–stained
+PC12 cells were analyzed by 3D live-cell microscopy. Cells are connected via one (A) or several
+TNTs (B) with surrounding cells. Rarely, branched TNTs were observed [(C), arrow]. In (D) a selected
+(x-z) section obtained from a confocal 3D reconstruction is shown. (E) TNTs contain actin but no
+microtubules. Fixed PC12 cells were immunostained with an antibody against -tubulin (green),
+phalloidine–fluorescein isothiocyanate (FITC) (red), and DAPI (blue). A single (x-y) section of a
+deconvolved 3D reconstruction is shown. The inset depicts the corresponding (x-z) section through
+the marked TNT (arrow). (F and G) Ultrastructure of TNTs. PC12 cells analyzed by SEM (F) or TEM
+(G) of consecutive 80-nm sections (G1, G2)

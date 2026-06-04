@@ -20,6 +20,11 @@ facial width:
 	what:
 		title
 
+
+neuron TNT:
+  before:
+	- Q5-FB1.png
+
 hippocampus:
   before:
 	- Q6-FB1.png

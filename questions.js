@@ -95,6 +95,9 @@ const QUESTIONS = [
       'Rustom et al., <em>Science</em> 303 (2004), 1007–1010 — original TNT description.',
       'Hayakawa et al., <em>Nature</em> 535 (2016), 551–555 — astrocyte→neuron transfer in stroke (vesicle-mediated, not TNT).',
       'Cordero Cervantes &amp; Zurzolo, <em>EMBO J.</em> 40 (2021), e105789 — review of TNTs in the nervous system.'
+    ],
+    media: [
+      { when: 'before', type: 'image', url: 'images/Q5-FB1.jpg', caption: '<strong>Rustom et al. (2004) — architecture of tunnelling nanotubes (TNTs) between cultured PC12 cells.</strong> Wheat-germ-agglutinin–stained cells imaged by 3D live-cell microscopy, connected via one (A) or several (B) TNTs; rarely branched (C, arrow); (D) an x–z section from a confocal 3D reconstruction. (E) TNTs contain actin but no microtubules (α-tubulin green, phalloidin–FITC red, DAPI blue). (F, G) Ultrastructure by SEM (F) and TEM (G) of consecutive 80-nm sections.' }
     ]
   },
   {
