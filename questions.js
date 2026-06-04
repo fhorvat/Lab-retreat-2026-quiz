@@ -167,7 +167,7 @@ const QUESTIONS = [
     explanation: 'The 2024 cryo-EM structure of the stress-induced mammalian 100S-like dimer showed how two 80S ribosomes inactivate each other at their decoding centres, preserving the pool for rapid recovery once stress is relieved. Bacterial 100S particles have been known for longer.',
     refs: ['Karki et al., <em>Science</em> 384 (2024), doi:10.1126/science.adr4287'],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q9-F1.png' }
+      { when: 'after', type: 'image', url: 'images/Q10-F1.png' }
     ]
   }
 ];

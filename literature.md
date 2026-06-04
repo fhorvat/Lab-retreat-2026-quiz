@@ -36,4 +36,4 @@ ccr5:
 
 ribosomes:
   after:
-	- Q9-F1.png
+	- Q10-F1.png
