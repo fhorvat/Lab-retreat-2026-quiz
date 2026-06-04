@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facts, or Faith? · Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #F0F0F0;
+  --ink: #000000;
+  --ink-soft: #555555;
+  --accent: #000000;
+  --accent-soft: #888888;
+  --correct: #000000;
+  --correct-bg: rgba(0, 0, 0, 0.05);
+  --rule: #000000;
+  --science: #1a3a5c;
+  --faith: #6b2c2c;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,22,18,0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+  background-attachment: fixed;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 72px 48px 96px;
+}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 32px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: clamp(40px, 7.5vw, 68px);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px 0;
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.subtitle {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin: 0 0 32px 0;
+  max-width: 560px;
+  line-height: 1.45;
+}
+
+.meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.meta span { display: inline-flex; gap: 8px; align-items: baseline; }
+.meta strong { color: var(--ink); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 10.5px; }
+
+/* ── INSTRUCTIONS ───────────────────────────────────── */
+.instructions {
+  font-family: 'Newsreader', serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 56px;
+  padding: 18px 22px;
+  border-left: 2px solid var(--ink);
+  background: var(--paper-2);
+}
+
+.instructions strong { color: var(--ink); font-weight: 600; }
+
+/* ── QUESTIONS ──────────────────────────────────────── */
+.question {
+  margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.q-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  padding-top: 8px;
+  border-top: 2px solid var(--accent);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.q-body { min-width: 0; }
+
+.q-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.q-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-variation-settings: "opsz" 48;
+  font-size: 22px;
+  line-height: 1.32;
+  margin: 0 0 22px 0;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.q-text em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.options { list-style: none; padding: 0; margin: 0; }
+.option {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 10px 14px;
+  margin: 3px -14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, opacity 0.18s ease;
+  align-items: start;
+}
+.option:hover { background: var(--paper-2); }
+.opt-letter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding-top: 1px;
+}
+.opt-text {
+  font-size: 16.5px;
+  line-height: 1.45;
+}
+
+.opt-text strong {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 8px;
+  border: 1px solid var(--ink);
+  vertical-align: 2px;
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+.footer {
+  margin-top: 72px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── PRINT ──────────────────────────────────────────── */
+@media print {
+  body { background: white; background-image: none; }
+  .page { padding: 24px; max-width: 100%; }
+  .question { break-inside: avoid; page-break-inside: avoid; margin-bottom: 36px; }
+  .option { cursor: default; }
+}
+
+/* ── MOBILE ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .page { padding: 44px 22px 64px; }
+  .question { grid-template-columns: 1fr; gap: 10px; }
+  .q-num {
+    border-top: none;
+    border-left: 2px solid var(--accent);
+    padding: 0 0 0 10px;
+    padding-top: 0;
+  }
+  .meta { gap: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="eyebrow">
+      <span>Group Meeting · Diagnostic</span>
+      <span>Binary judgement · 11 items</span>
+    </div>
+    <h1>Facts, <em>or</em><br>Faith?</h1>
+    <p class="subtitle">A short diagnostic on what current evidence does — and does not — support. Each claim sounds plausible. Only some of them are real.</p>
+    <div class="meta">
+      <span><strong>Format</strong> Two choices</span>
+      <span><strong>Items</strong> 11</span>
+      <span><strong>Duration</strong> ~10 min</span>
+    </div>
+  </header>
+
+  <section class="instructions">
+    For each statement, decide whether the claim is supported by current peer-reviewed evidence (<strong>Facts</strong>) or whether it merely <em>sounds</em> plausible but lacks robust backing (<strong>Faith</strong>). No partial credit. No hedging.
+  </section>
+
+  <!-- ════════════════════════ Q1 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 01</div>
+    <div class="q-body">
+      <div class="q-tag">Cell biology · stress response</div>
+      <h3 class="q-text">When cells are stressed, ribosomes are protected by forming inactive ribosome dimers.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q2 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 02</div>
+    <div class="q-body">
+      <div class="q-tag">Developmental biology · allometry</div>
+      <h3 class="q-text">Across placental mammals, mean oocyte diameter scales with adult body mass with an allometric exponent of ~0.1 — a human oocyte is ~110&nbsp;µm, an African elephant oocyte ~145&nbsp;µm, and a fin whale oocyte ~180&nbsp;µm.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q3 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 03</div>
+    <div class="q-body">
+      <div class="q-tag">Genome biology · endogenous retroviruses</div>
+      <h3 class="q-text">Roughly 8% of the human genome consists of DNA left behind by ancient retroviruses that infected our ancestors.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q4 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 04</div>
+    <div class="q-body">
+      <div class="q-tag">Behaviour · evolutionary psychology</div>
+      <h3 class="q-text">The facial width-to-height ratio (fWHR) of adult human males is a reliable signature of aggressive behaviour.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q5 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 05</div>
+    <div class="q-body">
+      <div class="q-tag">Physiology · metabolism</div>
+      <h3 class="q-text">Healthy adult humans retain deposits of metabolically active brown fat that burn energy to generate heat — tissue long thought to disappear after infancy.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q6 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 06</div>
+    <div class="q-body">
+      <div class="q-tag">Neuroscience · organelle traffic</div>
+      <h3 class="q-text">In the adult mammalian brain, healthy neurons routinely donate mitochondria to damaged neighbours through tunneling nanotubes, restoring their metabolic function.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q7 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 07</div>
+    <div class="q-body">
+      <div class="q-tag">Human genetics · disease resistance</div>
+      <h3 class="q-text">A natural mutation in the CCR5 gene (Δ32) makes people who inherit two copies almost completely resistant to infection by the common strain of HIV.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q8 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 08</div>
+    <div class="q-body">
+      <div class="q-tag">Neuroscience · adult plasticity</div>
+      <h3 class="q-text">Adult hippocampal neurogenesis is a robust, lifelong phenomenon in humans and contributes substantively to learning and memory.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q9 ════════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 09</div>
+    <div class="q-body">
+      <div class="q-tag">Reproductive biology · microchimerism</div>
+      <h3 class="q-text">Cells from a fetus can cross into the mother during pregnancy and persist in her tissues — including her brain — for decades afterward.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q10 ═══════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 10</div>
+    <div class="q-body">
+      <div class="q-tag">Microbiome · behaviour</div>
+      <h3 class="q-text">Higher faecal abundance of <em>Prevotella copri</em> in adults is associated with elevated trait neuroticism, with an effect size (β ≈ 0.18) comparable to known psychosocial predictors.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ════════════════════════ Q11 ═══════════════════════ -->
+  <article class="question">
+    <div class="q-num">Q · 11</div>
+    <div class="q-body">
+      <div class="q-tag">Animal behaviour · locomotion</div>
+      <h3 class="q-text">On steep, slippery slopes, penguins observe a right-of-way rule in which birds climbing uphill are given priority over those heading down.</h3>
+      <ul class="options">
+        <li class="option"><span class="opt-letter">a</span><span class="opt-text"><strong>Facts</strong> A real, peer-reviewed phenomenon.</span></li>
+        <li class="option"><span class="opt-letter">b</span><span class="opt-text"><strong>Faith</strong> Sounds plausible but lacks robust evidence.</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <span>End of quiz · Answer key in separate document</span>
+    <span>v1.1 · 11 items</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

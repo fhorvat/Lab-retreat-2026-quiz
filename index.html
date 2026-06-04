@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Facts, or Faith?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Facts, <span class="or">or</span> Faith?</h1>
+    <span class="badge" id="modeBadge">Live vote</span>
+  </header>
+
+  <main class="container" id="app">
+    <!-- Rendered by app.js: voter view by default, presenter view with ?teacher=true -->
+    <div class="waiting">
+      <div class="spinner"></div>
+      <p>Loading…</p>
+    </div>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

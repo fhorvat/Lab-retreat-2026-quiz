@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facts, or Faith? · Answer Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #F0F0F0;
+  --ink: #000000;
+  --ink-soft: #555555;
+  --accent: #000000;
+  --accent-soft: #888888;
+  --rule: #000000;
+  --science: #1a3a5c;
+  --faith: #6b2c2c;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+  background-attachment: fixed;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 72px 48px 96px;
+}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 32px;
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: clamp(40px, 7.5vw, 68px);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px 0;
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.subtitle {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin: 0 0 32px 0;
+  max-width: 560px;
+  line-height: 1.45;
+}
+
+.meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.meta span { display: inline-flex; gap: 8px; align-items: baseline; }
+.meta strong { color: var(--ink); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 10.5px; }
+
+/* ── QUICK-REFERENCE GRID ───────────────────────────── */
+.quick-key {
+  margin-bottom: 64px;
+}
+.quick-key h2 {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0 0 20px 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.key-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.key-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--ink);
+}
+.key-grid div span.k-num {
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+}
+.key-grid div span.k-ans {
+  color: var(--ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12.5px;
+}
+
+/* ── SCORE LEGEND ───────────────────────────────────── */
+.legend {
+  margin-bottom: 64px;
+  padding: 22px 26px;
+  border-left: 2px solid var(--ink);
+  background: var(--paper-2);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+.legend p { margin: 0 0 8px 0; }
+.legend p:last-child { margin-bottom: 0; }
+.legend strong {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── DETAILED ITEMS ─────────────────────────────────── */
+.detailed h2 {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0 0 32px 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.item {
+  margin-bottom: 52px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.item-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  padding-top: 8px;
+  border-top: 2px solid var(--ink);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.item-body { min-width: 0; }
+
+.item-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.item-q {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-variation-settings: "opsz" 36;
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 0 0 14px 0;
+  color: var(--ink-soft);
+  letter-spacing: -0.005em;
+}
+.item-q em { font-style: italic; font-weight: 500; }
+
+.item-a {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid var(--ink);
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.a-verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  text-align: center;
+  background: var(--paper);
+}
+.a-verdict.science { color: var(--ink); }
+.a-verdict.faith { color: var(--ink); font-style: italic; }
+
+.a-text {
+  font-size: 15.5px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.item-explain {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 10px 0;
+}
+
+.item-ref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding-top: 8px;
+  border-top: 1px dotted var(--ink-soft);
+}
+.item-ref strong {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+}
+.item-ref a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+.footer {
+  margin-top: 72px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── PRINT ──────────────────────────────────────────── */
+@media print {
+  body { background: white; background-image: none; }
+  .page { padding: 24px; max-width: 100%; }
+  .item { break-inside: avoid; page-break-inside: avoid; }
+  .quick-key { page-break-after: always; }
+}
+
+/* ── MOBILE ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .page { padding: 44px 22px 64px; }
+  .item { grid-template-columns: 1fr; gap: 10px; }
+  .item-num {
+    border-top: none;
+    border-left: 2px solid var(--ink);
+    padding: 0 0 0 10px;
+    padding-top: 0;
+  }
+  .item-a { grid-template-columns: 1fr; gap: 8px; }
+  .a-verdict { justify-self: start; }
+  .key-grid { grid-template-columns: repeat(2, 1fr); }
+  .meta { gap: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="eyebrow">
+      <span>Group Meeting · Diagnostic</span>
+      <span>Answer Key · Speaker Copy</span>
+    </div>
+    <h1>Answer <em>key</em>.</h1>
+    <p class="subtitle">Verdicts, one-line explanations, and primary references for the 11-item <em>Facts, or Faith?</em> diagnostic. Quick grid first; full breakdown below.</p>
+    <div class="meta">
+      <span><strong>Items</strong> 11</span>
+      <span><strong>Pairs with</strong> facts-or-faith.html</span>
+    </div>
+  </header>
+
+  <!-- ════════════════════════ QUICK GRID ═══════════════ -->
+  <section class="quick-key">
+    <h2>At a glance.</h2>
+    <div class="key-grid">
+      <div><span class="k-num">01</span><span class="k-ans">Facts</span></div>
+      <div><span class="k-num">02</span><span class="k-ans">Faith</span></div>
+      <div><span class="k-num">03</span><span class="k-ans">Facts</span></div>
+      <div><span class="k-num">04</span><span class="k-ans">Faith</span></div>
+      <div><span class="k-num">05</span><span class="k-ans">Facts</span></div>
+      <div><span class="k-num">06</span><span class="k-ans">Faith</span></div>
+      <div><span class="k-num">07</span><span class="k-ans">Facts</span></div>
+      <div><span class="k-num">08</span><span class="k-ans">Faith</span></div>
+      <div><span class="k-num">09</span><span class="k-ans">Facts</span></div>
+      <div><span class="k-num">10</span><span class="k-ans">Faith</span></div>
+      <div><span class="k-num">11</span><span class="k-ans">Faith</span></div>
+    </div>
+  </section>
+
+  <section class="legend">
+    <p><strong>Distribution.</strong> 5 Facts · 6 Faith. Items 1–10 alternate; item 11 (penguin) is a second Faith in a row, so position is not a reliable cue.</p>
+    <p><strong>Scoring.</strong> 11/11 = excellent calibration. 8–10 = healthy scepticism. 6–7 = at chance — useful prompt for a discussion about <em>why</em> the plausible claims feel true. ≤5 = consider the items mis-calibrated rather than the audience.</p>
+  </section>
+
+  <!-- ════════════════════════ DETAILED ════════════════ -->
+  <section class="detailed">
+    <h2>Item by item.</h2>
+
+    <!-- 01 -->
+    <article class="item">
+      <div class="item-num">Q · 01</div>
+      <div class="item-body">
+        <div class="item-tag">Cell biology · stress response</div>
+        <p class="item-q">When cells are stressed, ribosomes are protected by forming inactive ribosome dimers.</p>
+        <div class="item-a">
+          <span class="a-verdict science">Facts</span>
+          <span class="a-text">Stress-induced ribosome dimerisation is a conserved, structurally characterised mechanism for preserving translation machinery during nutrient starvation and other insults.</span>
+        </div>
+        <p class="item-explain">The 2024 cryo-EM structure of the stress-induced mammalian 100S-like dimer showed how two 80S ribosomes inactivate each other at their decoding centres, preserving the pool for rapid recovery once stress is relieved. Bacterial 100S particles have been known for longer.</p>
+        <p class="item-ref"><strong>Reference</strong>Karki et al., <em>Science</em> 384 (2024), doi:10.1126/science.adr4287 — <a href="https://www.science.org/doi/full/10.1126/science.adr4287">science.org/doi/full/10.1126/science.adr4287</a></p>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="item">
+      <div class="item-num">Q · 02</div>
+      <div class="item-body">
+        <div class="item-tag">Developmental biology · allometry</div>
+        <p class="item-q">Across placental mammals, mean oocyte diameter scales with adult body mass with an allometric exponent of ~0.1 — a human oocyte is ~110 µm, an African elephant oocyte ~145 µm, and a fin whale oocyte ~180 µm.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">The allometric framing and specific micrometre values sound authoritative, but mammalian oocyte size is essentially decoupled from body mass. The cited numbers are not in the literature.</span>
+        </div>
+        <p class="item-explain">Mammalian ovulated oocytes cluster around 70–120 µm in diameter across nearly four orders of magnitude of adult body mass. Mouse, human, cow, elephant, and whale oocytes are all within a factor of ~2 — there is no robust allometric scaling. The decoupling of egg size from body size is in fact one of the defining features of placental reproduction (compare with birds, where egg mass <em>does</em> scale with body mass). The exponent and species-specific values in the question are fabricated to sound rigorous; this is a useful illustration of how easily quantitative dressing can launder an untrue claim.</p>
+        <p class="item-ref"><strong>Reference</strong>Griffin, Emery &amp; Huggins, <em>Reproduction</em> 132 (2006), 191–206 — review of mammalian oocyte size across species.</p>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="item">
+      <div class="item-num">Q · 03</div>
+      <div class="item-body">
+        <div class="item-tag">Genome biology · endogenous retroviruses</div>
+        <p class="item-q">Roughly 8% of the human genome consists of DNA left behind by ancient retroviruses that infected our ancestors.</p>
+        <div class="item-a">
+          <span class="a-verdict science">Facts</span>
+          <span class="a-text">Human endogenous retroviruses (HERVs) and their remnants make up about 8% of our nuclear DNA — a permanent genetic fossil record of past germ-line infections.</span>
+        </div>
+        <p class="item-explain">When a retrovirus integrates into a germ-line cell, the provirus can be inherited by all descendants. Over tens of millions of years this happened repeatedly, leaving HERVs and their solo long-terminal-repeats across the genome — several times more sequence than all protein-coding exons combined (~1.5%). Most copies are inactivated by mutation, but some retain functional elements that the host has domesticated, including the placental fusion protein syncytin, which derives from a retroviral envelope gene.</p>
+        <p class="item-ref"><strong>References</strong>International Human Genome Sequencing Consortium (Lander et al.), <em>Nature</em> 409 (2001), 860–921 — ~8% of the genome is retroviral-derived.<br>Bannert &amp; Kurth, <em>PNAS</em> 101 (2004), 14572–14579 — review of HERVs.</p>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="item">
+      <div class="item-num">Q · 04</div>
+      <div class="item-body">
+        <div class="item-tag">Behaviour · evolutionary psychology</div>
+        <p class="item-q">The facial width-to-height ratio (fWHR) of adult human males is a reliable signature of aggressive behaviour.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">A widely cited but increasingly contested claim. Original effects do not survive pre-registration, larger samples, or controls for body size and sex.</span>
+        </div>
+        <p class="item-explain">Early reports (Carré &amp; McCormick, 2008) found fWHR correlated with penalty minutes in hockey players. Subsequent meta-analyses and pre-registered replications (e.g., Kosinski 2017; Wang et al., 2019; Caton et al., 2022) report effect sizes near zero once confounds — body mass, age, photo quality, observer rater — are properly controlled. The sexual-dimorphism premise has also been challenged: adult fWHR is not reliably larger in men than women.</p>
+        <p class="item-ref"><strong>References</strong>Kosinski, <em>Psych. Sci.</em> 28 (2017), 1675–1682 — large-sample non-replication.<br>Caton, Hannan &amp; Dixson, <em>Psychol. Bull.</em> 148 (2022), 33–60 — meta-analysis.</p>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="item">
+      <div class="item-num">Q · 05</div>
+      <div class="item-body">
+        <div class="item-tag">Physiology · metabolism</div>
+        <p class="item-q">Healthy adult humans retain deposits of metabolically active brown fat that burn energy to generate heat — tissue long thought to disappear after infancy.</p>
+        <div class="item-a">
+          <span class="a-verdict science">Facts</span>
+          <span class="a-text">PET–CT and biopsy studies confirmed depots of functional, cold-activated brown adipose tissue in adults, burning glucose and fat to produce heat.</span>
+        </div>
+        <p class="item-explain">Brown adipose tissue (BAT) dissipates chemical energy as heat through the mitochondrial uncoupling protein UCP1. It was long believed to vanish after infancy, but in 2009 several groups independently used <sup>18</sup>F-FDG PET–CT to image cold-activated, UCP1-positive BAT in the supraclavicular and paravertebral regions of healthy adults. BAT mass and activity decline with age and obesity and are inversely correlated with BMI, making the tissue a target for metabolic-disease research.</p>
+        <p class="item-ref"><strong>References</strong>Cypess et al., <em>N. Engl. J. Med.</em> 360 (2009), 1509–1517.<br>van Marken Lichtenbelt et al., <em>NEJM</em> 360 (2009), 1500–1508.<br>Virtanen et al., <em>NEJM</em> 360 (2009), 1518–1525.</p>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="item">
+      <div class="item-num">Q · 06</div>
+      <div class="item-body">
+        <div class="item-tag">Neuroscience · organelle traffic</div>
+        <p class="item-q">In the adult mammalian brain, healthy neurons routinely donate mitochondria to damaged neighbours through tunneling nanotubes, restoring metabolic function.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">Tunneling nanotubes are real in culture; routine, functionally rescuing mitochondrial transfer between adult neurons in vivo is not established.</span>
+        </div>
+        <p class="item-explain">TNTs were described by Rustom et al. (2004) and mitochondrial transfer via TNTs has been demonstrated in cell-culture systems and between astrocytes and neurons in stroke models. The leap to "routinely, between neurons, in the intact adult brain, as a rescue mechanism" is not supported: direct in vivo imaging of neuron-to-neuron TNT-mediated mitochondrial transfer in mammals is lacking, and the structures described in vivo are often blebs or filopodia rather than bona fide TNTs. The claim sits comfortably in the gap between "biologically possible" and "demonstrated".</p>
+        <p class="item-ref"><strong>References</strong>Rustom et al., <em>Science</em> 303 (2004), 1007–1010 — original TNT description.<br>Hayakawa et al., <em>Nature</em> 535 (2016), 551–555 — astrocyte→neuron mitochondrial transfer in stroke (not TNT-mediated; extracellular vesicles).<br>Cordero Cervantes &amp; Zurzolo, <em>EMBO J.</em> 40 (2021), e105789 — review of what is and is not established about TNTs in the nervous system.</p>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="item">
+      <div class="item-num">Q · 07</div>
+      <div class="item-body">
+        <div class="item-tag">Human genetics · disease resistance</div>
+        <p class="item-q">A natural mutation in the CCR5 gene (Δ32) makes people who inherit two copies almost completely resistant to infection by the common strain of HIV.</p>
+        <div class="item-a">
+          <span class="a-verdict science">Facts</span>
+          <span class="a-text">Homozygous CCR5-Δ32 carriers lack a working CCR5 co-receptor, which most HIV-1 strains need to enter cells, and are highly resistant to infection.</span>
+        </div>
+        <p class="item-explain">CCR5 is the chemokine co-receptor that R5-tropic HIV-1 uses, alongside CD4, to enter T cells. The Δ32 allele is a 32-bp deletion producing a truncated receptor that never reaches the cell surface. Individuals homozygous for Δ32 (~1% of people of European ancestry) are strongly protected against R5-strain infection; heterozygotes progress to AIDS more slowly. This is the basis of the only confirmed HIV cures to date — the "Berlin" and "London" patients, who received bone-marrow transplants from Δ32/Δ32 donors.</p>
+        <p class="item-ref"><strong>References</strong>Samson et al., <em>Nature</em> 382 (1996), 722–725.<br>Liu et al., <em>Cell</em> 86 (1996), 367–377 — Δ32 homozygotes resist HIV-1 infection.<br>Hütter et al., <em>NEJM</em> 360 (2009), 692–698 — the Berlin patient.</p>
+      </div>
+    </article>
+
+    <!-- 08 -->
+    <article class="item">
+      <div class="item-num">Q · 08</div>
+      <div class="item-body">
+        <div class="item-tag">Neuroscience · adult plasticity</div>
+        <p class="item-q">Adult hippocampal neurogenesis is a robust, lifelong phenomenon in humans and contributes substantively to learning and memory.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">A textbook claim that is much less settled than it sounds. The most stringent recent studies find that human dentate-gyrus neurogenesis drops sharply in childhood and is undetectable in adults; the functional contribution to memory in humans has never been directly shown.</span>
+        </div>
+        <p class="item-explain">Adult neurogenesis is well established in rodents. Extending it to humans rests on much shakier ground. Sorrells et al. (Nature, 2018) examined 59 postmortem and surgical samples and found doublecortin⁺ / PSA-NCAM⁺ neuroblasts essentially absent after age ~13. Moreno-Jiménez et al. (2019) and Boldrini et al. (2018) reported the opposite using different tissue-fixation protocols — and the debate has not been resolved; current consensus is "uncertain, possibly very low rate." Critically, even the studies that argue neurogenesis persists do not demonstrate a causal contribution to memory in humans. The leap from "some new neurons may exist" to "robust, lifelong, substantively contributing to learning" is the faith part.</p>
+        <p class="item-ref"><strong>References</strong>Sorrells et al., <em>Nature</em> 555 (2018), 377–381 — neurogenesis "drops to undetectable levels in adults".<br>Moreno-Jiménez et al., <em>Nat. Med.</em> 25 (2019), 554–560 — counter-evidence, fixation-dependent.<br>Kempermann et al., <em>Cell Stem Cell</em> 23 (2018), 25–30 — joint statement: rate, if non-zero, is far below rodent levels and functional role in humans is unproven.</p>
+      </div>
+    </article>
+
+    <!-- 09 -->
+    <article class="item">
+      <div class="item-num">Q · 09</div>
+      <div class="item-body">
+        <div class="item-tag">Reproductive biology · microchimerism</div>
+        <p class="item-q">Cells from a fetus can cross into the mother during pregnancy and persist in her tissues — including her brain — for decades afterward.</p>
+        <div class="item-a">
+          <span class="a-verdict science">Facts</span>
+          <span class="a-text">Fetal cells routinely enter the maternal circulation and engraft in maternal organs; male (Y-chromosome) DNA has been detected in women decades after pregnancy, including in post-mortem brain.</span>
+        </div>
+        <p class="item-explain">Cells traffic in both directions across the placenta, so a mother acquires a small population of genetically distinct fetal cells, and the fetus acquires maternal cells — fetomaternal microchimerism. These cells can persist for decades; a standard assay detects male DNA in the blood (and tissues) of women who have borne sons. Microchimeric cells have been found integrated in maternal organs and are being investigated for roles in wound healing, autoimmunity, and cancer. The striking part — persistence in the maternal <em>brain</em> — has been reported directly.</p>
+        <p class="item-ref"><strong>References</strong>Bianchi et al., <em>PNAS</em> 93 (1996), 705–708 — fetal cells persist in maternal blood for years.<br>Chan et al., <em>PLoS ONE</em> 7 (2012), e45592 — male microchimerism in the female human brain.</p>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="item">
+      <div class="item-num">Q · 10</div>
+      <div class="item-body">
+        <div class="item-tag">Microbiome · behaviour</div>
+        <p class="item-q">Higher faecal abundance of <em>Prevotella copri</em> in adults is associated with elevated trait neuroticism, with an effect size (β ≈ 0.18) comparable to known psychosocial predictors.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">The specific taxon, the standardised coefficient, and the comparison to "known psychosocial predictors" all sound like a real abstract — but the specific <em>P. copri</em>–neuroticism claim does not survive replication or covariate adjustment. The numerical effect size in the question is fabricated.</span>
+        </div>
+        <p class="item-explain">There <em>are</em> published associations between gut taxa and personality scales (e.g., Johnson 2020 reports correlations with <em>Akkermansia</em>, <em>Lactobacillus</em>, and <em>Prevotella</em>), and trait neuroticism has been a popular outcome. The robustness gap is large: most associations are derived in single cohorts of n &lt; 1000, do not adjust adequately for diet, BMI, antibiotic exposure, or recent stress, rarely replicate out-of-sample, and the reported standardised effects shrink towards zero in pooled analyses. Mendelian-randomisation studies aiming to establish causal direction yield mostly null results. The lesson: a specific taxon name plus a credible-looking β is exactly how an unreplicated single-cohort finding ends up cited as established biology.</p>
+        <p class="item-ref"><strong>References</strong>Johnson, <em>Hum. Microbiome J.</em> 15 (2020), 100069 — exploratory associations.<br>Hughes et al., <em>Nat. Microbiol.</em> 5 (2020), 1079–1087 — twin-cohort analyses showing diet dominates microbiome variance.<br>Liu et al., <em>Nat. Genet.</em> 54 (2022), 52–61 — MR analysis: limited evidence for causal personality→microbiome or microbiome→personality links.</p>
+      </div>
+    </article>
+
+    <!-- 11 -->
+    <article class="item">
+      <div class="item-num">Q · 11</div>
+      <div class="item-body">
+        <div class="item-tag">Animal behaviour · locomotion</div>
+        <p class="item-q">On steep, slippery slopes, penguins observe a right-of-way rule in which birds climbing uphill are given priority over those heading down.</p>
+        <div class="item-a">
+          <span class="a-verdict faith">Faith</span>
+          <span class="a-text">An appealing, orderly-sounding rule — but there is no peer-reviewed evidence that penguins follow an uphill right-of-way convention. Movement on slopes is better explained by individual footing and following established trails.</span>
+        </div>
+        <p class="item-explain">Penguins do form well-worn paths ("penguin highways"), travel in single file, and there is genuine work on the biomechanics of their waddling gait and on the coordinated, traffic-like dynamics of huddles. But a formal social rule granting uphill climbers priority over descenders has not been documented in the behavioural-ecology literature. The claim borrows the plausibility of human traffic norms and of real penguin trail-following to dress up a convention that, as stated, lacks empirical support — a good example of an "of course animals would do that" intuition with no study behind it. <em>(If you have a source for a genuine uphill-priority rule, this item can flip to Facts.)</em></p>
+        <p class="item-ref"><strong>Reference</strong>Zitterbart et al., <em>PLoS ONE</em> 6 (2011), e20260 — traveling-wave dynamics of emperor-penguin huddles (real coordinated movement; not an uphill-priority rule). No peer-reviewed source supports the specific claim as stated.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="footer">
+    <span>Answer key · Speaker copy</span>
+    <span>v1.1 · 11 items</span>
+  </footer>
+
+</div>
+</body>
+</html>
