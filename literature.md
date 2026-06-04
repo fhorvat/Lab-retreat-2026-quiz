@@ -32,3 +32,8 @@ hippocampus:
 ccr5:
   after:
 	- Q8-F1.png
+
+
+ribosomes:
+  after:
+	- Q9-F1.png
