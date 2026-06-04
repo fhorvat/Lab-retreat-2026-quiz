@@ -73,6 +73,7 @@ async function sendVote(id, vote, title) {
                     : api('vote', { deviceId: DEVICE_ID, topicId: id, topicTitle: title || '', vote: vote });
 }
 async function getResults()       { return LOCAL_MODE ? localResults()    : api('results'); }
+async function resetVotes()       { return LOCAL_MODE ? (localStorage.removeItem(LS_VOTES), { status: 'ok' }) : api('reset', { key: PRESENTER_KEY }); }
 
 // ── Helpers ─────────────────────────────────────────────────
 function qById(id)  { return QUESTIONS.find(function (q) { return q.id === Number(id); }); }
@@ -221,6 +222,7 @@ function startPresenter() {
       '<button class="btn" id="pPrev">← Previous</button>' +
       '<button class="btn primary" id="pNext">Next →</button>' +
       '<button class="btn reveal" id="pReveal">Reveal answer</button>' +
+      '<button class="btn danger" id="pReset">Reset votes</button>' +
     '</div>' +
     '</div>' +                                   // close .present-main
     '<aside class="present-nav" id="pNav"></aside>';
@@ -264,7 +266,7 @@ function startPresenter() {
     if (!q) {
       el('pProgress').textContent = 'Not started';
       el('pTag').textContent = '';
-      el('pText').textContent = 'Press “Next →” to show the first question to the room.';
+      el('pText').textContent = 'Fact or Faith, are you ready?';
     } else {
       el('pProgress').textContent = 'Question ' + (qIndex(q.id) + 1) + ' of ' + QUESTIONS.length;
       el('pTag').textContent = q.tag;
@@ -340,6 +342,14 @@ function startPresenter() {
     revealed = !revealed;
     if (revealed) renderAnswer(q); else el('pAnswer').innerHTML = '';
     el('pReveal').textContent = revealed ? 'Hide answer' : 'Reveal answer';
+  });
+  el('pReset').addEventListener('click', function () {
+    if (!confirm('Clear ALL votes for every question? This cannot be undone.')) return;
+    el('pReset').disabled = true;
+    el('pReset').textContent = 'Resetting…';
+    resetVotes()
+      .then(function () { el('pReset').textContent = 'Votes cleared ✓'; setTimeout(function () { el('pReset').textContent = 'Reset votes'; el('pReset').disabled = false; }, 1500); refresh(); })
+      .catch(function () { el('pReset').textContent = 'Reset failed'; el('pReset').disabled = false; });
   });
 
   refresh();

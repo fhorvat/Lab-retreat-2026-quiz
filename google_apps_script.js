@@ -33,6 +33,7 @@ function doGet(e) {
     if (action === 'vote')     return handleVote(p);
     if (action === 'state')    return handleState();
     if (action === 'setState') return handleSetState(p);
+    if (action === 'reset')    return handleReset(p);
     return handleResults();
   } catch (err) {
     return json({ status: 'error', message: err.toString() });
@@ -63,6 +64,17 @@ function handleSetState(p) {
   }
   PropertiesService.getScriptProperties().setProperty('currentQuestion', String(Number(p.q || 0)));
   return json({ status: 'ok', currentQuestion: Number(p.q || 0) });
+}
+
+// Clear all votes (keeps the header row). Presenter-key protected.
+function handleReset(p) {
+  if (String(p.key) !== String(PRESENTER_KEY)) {
+    return json({ status: 'error', message: 'bad key' });
+  }
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var last = sheet.getLastRow();
+  if (last > 1) sheet.deleteRows(2, last - 1);
+  return json({ status: 'ok', cleared: true });
 }
 
 // ── Votes ────────────────────────────────────────────────────

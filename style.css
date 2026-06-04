@@ -237,6 +237,9 @@ html, body {
 .btn.primary:hover { background: var(--facts-dark); }
 .btn.reveal { background: var(--text); border-color: var(--text); color: #fff; margin-left: auto; }
 .btn.reveal:hover { background: #0f172a; }
+.btn.danger { color: #dc2626; border-color: #fecaca; }
+.btn.danger:hover { background: #fef2f2; border-color: #fca5a5; }
+.btn.danger:disabled { opacity: 0.6; }
 
 /* ── PRESENTER: ANSWER REVEAL ────────────────────────────── */
 .answer {
