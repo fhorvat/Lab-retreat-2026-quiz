@@ -79,6 +79,42 @@ function qById(id)  { return QUESTIONS.find(function (q) { return q.id === Numbe
 function qIndex(id) { return QUESTIONS.findIndex(function (q) { return q.id === Number(id); }); }
 function esc(s)     { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
+// Extract a YouTube video id from watch / youtu.be / shorts / embed URLs.
+function ytId(url) {
+  try {
+    const u = new URL(url);
+    if (u.hostname.indexOf('youtu.be') !== -1) return u.pathname.slice(1);
+    const parts = u.pathname.split('/').filter(Boolean);
+    if (parts[0] === 'shorts' || parts[0] === 'embed') return parts[1];
+    if (u.searchParams.get('v')) return u.searchParams.get('v');
+  } catch (e) {}
+  return '';
+}
+
+// Build HTML for a question's media of a given placement ('before' | 'after').
+function mediaHTML(items, when) {
+  if (!items || !items.length) return '';
+  const sel = items.filter(function (m) { return m.when === when; });
+  if (!sel.length) return '';
+  return sel.map(function (m) {
+    if (m.type === 'youtube') {
+      const isShort = /\/shorts\//.test(m.url);
+      return '<div class="media yt' + (isShort ? ' short' : '') + '">' +
+               '<iframe src="https://www.youtube.com/embed/' + ytId(m.url) + '" title="video" ' +
+               'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+               'allowfullscreen></iframe></div>' +
+             (m.caption ? '<div class="media-cap">' + m.caption + '</div>' : '');
+    }
+    if (m.type === 'image') {
+      return '<figure class="media img"><img src="' + m.url + '" alt="' + (m.caption || 'figure') + '">' +
+             (m.caption ? '<figcaption>' + m.caption + '</figcaption>' : '') + '</figure>';
+    }
+    // link
+    return '<a class="media-link" href="' + m.url + '" target="_blank" rel="noopener">' +
+           (m.label || m.url) + ' ↗</a>';
+  }).join('');
+}
+
 // ============================================================
 //  VOTER VIEW
 // ============================================================
@@ -165,6 +201,7 @@ function startPresenter() {
         '<div class="legend"><span class="facts"><span class="dot"></span><span id="pFacts"></span></span>' +
         '<span class="faith"><span class="dot"></span><span id="pFaith"></span></span></div>' +
       '</div>' +
+      '<div class="media-block" id="pBefore"></div>' +
       '<div id="pAnswer"></div>' +
     '</div>' +
     '<div class="controls">' +
@@ -197,6 +234,7 @@ function startPresenter() {
       el('pTag').textContent = q.tag;
       el('pText').innerHTML = esc(q.text);
     }
+    el('pBefore').innerHTML = q ? mediaHTML(q.media, 'before') : '';
   }
 
   function renderTally(q, data) {
@@ -230,6 +268,7 @@ function startPresenter() {
         '<p class="one-liner">' + q.oneLiner + '</p>' +
         '<p class="explain">' + q.explanation + '</p>' +
         '<div class="refs"><strong>Reference' + (q.refs.length > 1 ? 's' : '') + '</strong>' + refs + '</div>' +
+        (mediaHTML(q.media, 'after') ? '<div class="media-block">' + mediaHTML(q.media, 'after') + '</div>' : '') +
       '</div>';
   }
 

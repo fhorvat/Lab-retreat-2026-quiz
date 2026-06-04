@@ -11,6 +11,13 @@
 //   oneLiner    short verdict summary (presenter screen)
 //   explanation longer rationale (presenter screen, on reveal)
 //   refs        array of reference strings (may contain <em>/<a> HTML)
+//   media       (optional) supporting material shown on the PRESENTER screen.
+//               Array of { when, type, url, caption?, label? } where
+//                 when : 'before'  (shown while the question is live, pre-reveal)
+//                      | 'after'   (shown as part of the revealed answer)
+//                 type : 'youtube' (embed; watch / youtu.be / shorts URLs all work)
+//                      | 'image'   (figure; url = image path, caption optional)
+//                      | 'link'    (article/resource link; label = button text)
 //
 // The ARRAY ORDER below is the presentation order. Reorder freely;
 // keep each id unique and stable so existing votes still aggregate.
@@ -24,7 +31,10 @@ const QUESTIONS = [
     verdict: 'faith',
     oneLiner: 'An appealing, orderly-sounding rule — but there is no peer-reviewed evidence that penguins follow an uphill right-of-way convention.',
     explanation: 'Penguins do form well-worn paths ("penguin highways"), travel in single file, and there is genuine work on the biomechanics of their gait and the traffic-like dynamics of huddles. But a formal social rule granting uphill climbers priority over descenders has not been documented. The claim borrows the plausibility of human traffic norms and real penguin trail-following to dress up a convention that, as stated, lacks empirical support.',
-    refs: ['Zitterbart et al., <em>PLoS ONE</em> 6 (2011), e20260 — traveling-wave dynamics of emperor-penguin huddles (real coordinated movement; not an uphill-priority rule).']
+    refs: ['Zitterbart et al., <em>PLoS ONE</em> 6 (2011), e20260 — traveling-wave dynamics of emperor-penguin huddles (real coordinated movement; not an uphill-priority rule).'],
+    media: [
+      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/qSDm4EjypWk', caption: 'Penguins on a slope — watch before revealing.' }
+    ]
   },
   {
     id: 9,
@@ -49,6 +59,10 @@ const QUESTIONS = [
       'Geniole et al., <em>PLoS ONE</em> 10 (2015), e0132726 — meta-analysis: small but significant fWHR–threat association.',
       'Haselhuhn, Ormiston &amp; Wong, <em>PLoS ONE</em> 10 (2015), e0122637 — meta-analysis: fWHR predicts aggression.',
       'Carré &amp; McCormick, <em>Proc. R. Soc. B</em> 275 (2008), 2651–2656 — original report.'
+    ],
+    media: [
+      { when: 'after', type: 'link', url: 'https://pubmed.ncbi.nlm.nih.gov/18713717/', label: 'Carré &amp; McCormick (2008), original report — PubMed' },
+      { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Full text — PubMed Central' }
     ]
   },
   {
