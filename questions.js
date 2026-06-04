@@ -140,6 +140,9 @@ const QUESTIONS = [
       'Samson et al., <em>Nature</em> 382 (1996), 722–725.',
       'Liu et al., <em>Cell</em> 86 (1996), 367–377 — Δ32 homozygotes resist HIV-1.',
       'Hütter et al., <em>NEJM</em> 360 (2009), 692–698 — the Berlin patient.'
+    ],
+    media: [
+      { when: 'after', type: 'image', url: 'images/Q8-F1.jpg' }
     ]
   },
   {

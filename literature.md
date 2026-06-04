@@ -28,3 +28,7 @@ neuron TNT:
 hippocampus:
   before:
 	- Q6-FB1.png
+
+ccr5:
+  after:
+	- Q8-F1.png
