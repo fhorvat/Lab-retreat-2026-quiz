@@ -46,6 +46,10 @@ const QUESTIONS = [
     refs: [
       'Bianchi et al., <em>PNAS</em> 93 (1996), 705–708 — fetal cells persist in maternal blood for years.',
       'Chan et al., <em>PLoS ONE</em> 7 (2012), e45592 — male microchimerism in the female human brain.'
+    ],
+    media: [
+      { when: 'after', type: 'image', url: 'images/Q2-F1.png', caption: '<strong>Fetal microchimerism in human brain tumours.</strong> (A, B) Representative H&amp;E-stained slides from a glioblastoma (A) and meningioma (B), 20× magnification. (C, D) X- and Y-chromosome FISH in a glioblastoma (C) and meningioma (D), 100× magnification. Arrowheads indicate XY cells; lower-right insets show a magnified representative XY cell.' },
+      { when: 'after', type: 'link', url: 'https://www.sciencedirect.com/science/article/pii/S2589004221016345', label: 'Source article — iScience (ScienceDirect)' }
     ]
   },
   {
