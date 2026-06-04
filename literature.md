@@ -19,3 +19,7 @@ facial width:
 	link: https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/
 	what:
 		title
+
+hippocampus:
+  before:
+	- Q6-FB1.png

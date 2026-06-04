@@ -108,6 +108,9 @@ const QUESTIONS = [
       'Sorrells et al., <em>Nature</em> 555 (2018), 377–381 — "drops to undetectable levels in adults".',
       'Moreno-Jiménez et al., <em>Nat. Med.</em> 25 (2019), 554–560 — counter-evidence, fixation-dependent.',
       'Kempermann et al., <em>Cell Stem Cell</em> 23 (2018), 25–30 — joint statement.'
+    ],
+    media: [
+      { when: 'before', type: 'image', url: 'images/Q6-FB1.png', caption: '<strong>Retrospective ¹⁴C birth-dating of human neurons.</strong> ¹⁴C concentrations in hippocampal-neuron genomic DNA correspond to a time after the individual’s date of birth, taken as evidence for neurogenesis continuing throughout life (Spalding et al., 2013).' }
     ]
   },
   {
