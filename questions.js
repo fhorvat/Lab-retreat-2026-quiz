@@ -61,7 +61,7 @@ const QUESTIONS = [
       'Carré &amp; McCormick, <em>Proc. R. Soc. B</em> 275 (2008), 2651–2656 — original report.'
     ],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q2-F1.png', caption: '<strong>Carré &amp; McCormick (2008).</strong> Scatter plots depicting the relationship between face width-to-height ratio and aggressive behaviour (number of penalty minutes per game played) in male professional hockey players for the six Canadian teams in the NHL (n=112) as a group (a) and for each individual team (b–g): (a) all Canadian NHL teams (r=0.30), (b) Calgary Flames (r=0.17), (c) Edmonton Oilers (r=0.20), (d) Montreal Canadiens (r=0.39), (e) Ottawa Senators (r=0.51), (f) Toronto Maple Leafs (r=0.37) and (g) Vancouver Canucks (r=0.24).' },
+      { when: 'after', type: 'image', url: 'images/Q3-F1.png', caption: '<strong>Carré &amp; McCormick (2008).</strong> Scatter plots depicting the relationship between face width-to-height ratio and aggressive behaviour (number of penalty minutes per game played) in male professional hockey players for the six Canadian teams in the NHL (n=112) as a group (a) and for each individual team (b–g): (a) all Canadian NHL teams (r=0.30), (b) Calgary Flames (r=0.17), (c) Edmonton Oilers (r=0.20), (d) Montreal Canadiens (r=0.39), (e) Ottawa Senators (r=0.51), (f) Toronto Maple Leafs (r=0.37) and (g) Vancouver Canucks (r=0.24).' },
       { when: 'after', type: 'link', url: 'https://pubmed.ncbi.nlm.nih.gov/18713717/', label: 'Carré &amp; McCormick (2008), original report — PubMed' },
       { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Haselhuhn et al. (2015), “Men’s Facial Width-to-Height Ratio Predicts Aggression: A Meta-Analysis” — PMC' }
     ]

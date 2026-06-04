@@ -1,9 +1,13 @@
 penguins:
   before:https://www.youtube.com/shorts/qSDm4EjypWk
 
+maternal chimerism:
+ after:
+	link: https://www.sciencedirect.com/science/article/pii/S2589004221016345
+
 facial width:
   after:
-	link: /grill-me Prompts/canvases/008_generate-question-for-page.md
+	link: https://pubmed.ncbi.nlm.nih.gov/18713717/
 	what: 
 		title
 		fig: Figure 4
