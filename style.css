@@ -306,6 +306,76 @@ html, body {
 }
 .setup-warning code { background: #ffedd5; padding: 1px 5px; border-radius: 4px; }
 
+/* ── PRESENTER: TWO-COLUMN LAYOUT + QUESTION TABS ────────── */
+.container.presenter-layout {
+  max-width: 1080px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.present-main { flex: 1; min-width: 0; }
+
+.present-nav {
+  width: 240px;
+  flex: none;
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+.present-nav-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin: 2px 0 8px;
+}
+.nav-tab {
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-family: var(--font);
+  color: var(--text);
+  font-size: 13px;
+  transition: background .12s ease, border-color .12s ease;
+}
+.nav-tab:hover { background: var(--bg); }
+.nav-tab .n { font-weight: 700; color: var(--text-light); min-width: 16px; text-align: center; }
+.nav-tab .t { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav-tab.seen .n { color: var(--facts); }
+.nav-tab.active { border-left-color: var(--facts); background: #eff6ff; }
+.nav-tab.active .t { font-weight: 700; }
+
+@media (max-width: 860px) {
+  .container.presenter-layout { flex-direction: column; gap: 16px; }
+  .present-nav {
+    width: 100%;
+    position: static;
+    max-height: none;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 4px;
+    order: -1;                 /* tabs above the question on narrow screens */
+  }
+  .present-nav-title { display: none; }
+  .nav-tab { border-left: none; border-radius: 20px; flex: none; }
+  .nav-tab .t { max-width: 130px; }
+  .nav-tab.active { border-color: var(--facts); }
+}
+
 /* ── SUPPORTING MEDIA (presenter screen) ─────────────────── */
 .media-block { margin: 18px 0 0; }
 .media-block:empty { margin: 0; }

@@ -182,7 +182,9 @@ function startPresenter() {
   const voterUrl = location.origin + location.pathname;
   const qrSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=264x264&margin=8&data=' + encodeURIComponent(voterUrl);
 
+  app.classList.add('presenter-layout');
   app.innerHTML =
+    '<div class="present-main">' +
     (LOCAL_MODE
       ? '<div class="setup-warning"><strong>Local demo mode.</strong> No backend configured — votes are stored only in <em>this</em> browser. ' +
         'Paste your Apps Script URL into <code>GOOGLE_SCRIPT_URL</code> in <code>app.js</code> to go live across phones.</div>'
@@ -208,9 +210,32 @@ function startPresenter() {
       '<button class="btn" id="pPrev">← Previous</button>' +
       '<button class="btn primary" id="pNext">Next →</button>' +
       '<button class="btn reveal" id="pReveal">Reveal answer</button>' +
-    '</div>';
+    '</div>' +
+    '</div>' +                                   // close .present-main
+    '<aside class="present-nav" id="pNav"></aside>';
 
   const el = function (id) { return document.getElementById(id); };
+
+  // Right-hand question tabs — jump straight to any question
+  el('pNav').innerHTML =
+    '<div class="present-nav-title">Jump to</div>' +
+    '<button class="nav-tab" data-i="-1"><span class="n">○</span><span class="t">Start screen</span></button>' +
+    QUESTIONS.map(function (q, i) {
+      return '<button class="nav-tab" data-i="' + i + '"><span class="n">' + (i + 1) +
+             '</span><span class="t">' + esc(q.tag) + '</span></button>';
+    }).join('');
+  el('pNav').querySelectorAll('.nav-tab').forEach(function (b) {
+    b.addEventListener('click', function () { goto(parseInt(b.getAttribute('data-i'), 10)); });
+  });
+  function updateNav(cur) {
+    const active = curIdx(cur);
+    el('pNav').querySelectorAll('.nav-tab').forEach(function (b) {
+      const i = parseInt(b.getAttribute('data-i'), 10);
+      b.classList.toggle('active', i === active);
+      b.classList.toggle('seen', i > -1 && i < active);
+    });
+  }
+
   let shownId = null;     // question currently displayed
   let revealed = false;
 
@@ -288,6 +313,7 @@ function startPresenter() {
     el('pNext').disabled = curIdx(cur) >= QUESTIONS.length - 1;
     el('pReveal').disabled = !q;
     el('pReveal').textContent = revealed ? 'Hide answer' : 'Reveal answer';
+    updateNav(cur);
 
     try {
       const data = await getResults();
