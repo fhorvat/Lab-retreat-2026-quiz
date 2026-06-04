@@ -53,8 +53,8 @@ const QUESTIONS = [
     tag: 'Behaviour · evolutionary psychology',
     text: 'The facial width-to-height ratio (fWHR) of adult human males is a reliable signature of aggressive behaviour.',
     verdict: 'facts',
-    oneLiner: 'Genuinely debated — but meta-analyses across many samples do find a small, statistically reliable association between fWHR and threat/dominance behaviour, so there is a real (if modest) signal.',
-    explanation: 'The original report (Carré &amp; McCormick, 2008) linked fWHR to aggression in hockey players. Many single studies fail to replicate, and confounds — body mass, sex, photo quality — inflate early effects, which is why the claim stays contested. But the two largest syntheses to date, the meta-analyses of Geniole et al. (2015) and Haselhuhn et al. (2015), both find a small but significant fWHR–threat/aggression association across dozens of samples. On the balance of current evidence the signal is real though weak — exactly the kind of claim reasonable scientists still argue about.',
+    oneLiner: 'Meta-analyses across many samples do find a small, statistically reliable association between fWHR and threat/dominance behaviour, so there is a real (if modest) signal.',
+    explanation: 'The original report (Carré &amp; McCormick, 2008) linked fWHR to aggression in hockey players. Many single studies fail to replicate, and confounds — body mass, sex, photo quality — inflate early effects, which is why the claim stays contested. But the two largest syntheses to date, the meta-analyses of Geniole et al. (2015) and Haselhuhn et al. (2015), both find a small but significant fWHR–threat/aggression association across dozens of samples. On the balance of current evidence the signal is real though weak.',
     refs: [
       'Geniole et al., <em>PLoS ONE</em> 10 (2015), e0132726 — meta-analysis: small but significant fWHR–threat association.',
       'Haselhuhn, Ormiston &amp; Wong, <em>PLoS ONE</em> 10 (2015), e0122637 — meta-analysis: fWHR predicts aggression.',
