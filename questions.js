@@ -123,5 +123,18 @@ const QUESTIONS = [
     oneLiner: 'Stress-induced ribosome dimerisation is a conserved, structurally characterised way to preserve translation machinery during starvation and other insults.',
     explanation: 'The 2024 cryo-EM structure of the stress-induced mammalian 100S-like dimer showed how two 80S ribosomes inactivate each other at their decoding centres, preserving the pool for rapid recovery once stress is relieved. Bacterial 100S particles have been known for longer.',
     refs: ['Karki et al., <em>Science</em> 384 (2024), doi:10.1126/science.adr4287']
+  },
+  {
+    id: 12,
+    tag: 'Epigenetics · transgenerational inheritance',
+    text: 'The effects of famine or psychological trauma are passed to children and grandchildren through inherited epigenetic marks.',
+    verdict: 'faith',
+    oneLiner: 'Striking human cohort correlations exist, but evidence that acquired epigenetic marks are transmitted through the human germ line — rather than reflecting shared environment or direct in-utero exposure — remains weak and contested.',
+    explanation: 'The Dutch Hunger Winter cohorts show methylation differences and metabolic effects decades after prenatal famine, and Yehuda and colleagues reported altered stress-gene methylation in Holocaust survivors and their children. These findings are real. But genuine transgenerational inheritance in mammals must survive two rounds of germline epigenetic reprogramming, which erases most marks; the human data are correlational, small, and confounded by shared environment, and cannot separate truly inherited marks from direct in-utero exposure of the fetus (and its already-forming germ cells). The strong claim — heritable epigenetic transmission of experience in humans — is not established.',
+    refs: [
+      'Heijmans et al., <em>PNAS</em> 105 (2008), 17046–17049 — Dutch Hunger Winter methylation.',
+      'Yehuda et al., <em>Biol. Psychiatry</em> 80 (2016), 372–380 — intergenerational stress-gene methylation.',
+      'Horsthemke, <em>Nat. Commun.</em> 9 (2018), 2973 — critical review: little evidence for transgenerational epigenetic inheritance in humans.'
+    ]
   }
 ];
