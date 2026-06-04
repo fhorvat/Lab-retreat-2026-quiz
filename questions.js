@@ -48,7 +48,7 @@ const QUESTIONS = [
       'Chan et al., <em>PLoS ONE</em> 7 (2012), e45592 — male microchimerism in the female human brain.'
     ],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q2-F1.png', caption: '<strong>Fetal microchimerism in human brain tumours.</strong> (A, B) Representative H&amp;E-stained slides from a glioblastoma (A) and meningioma (B), 20× magnification. (C, D) X- and Y-chromosome FISH in a glioblastoma (C) and meningioma (D), 100× magnification. Arrowheads indicate XY cells; lower-right insets show a magnified representative XY cell.' },
+      { when: 'after', type: 'image', url: 'images/Q2-F1.jpg', caption: '<strong>Fetal microchimerism in human brain tumours.</strong> (A, B) Representative H&amp;E-stained slides from a glioblastoma (A) and meningioma (B), 20× magnification. (C, D) X- and Y-chromosome FISH in a glioblastoma (C) and meningioma (D), 100× magnification. Arrowheads indicate XY cells; lower-right insets show a magnified representative XY cell.' },
       { when: 'after', type: 'link', url: 'https://www.sciencedirect.com/science/article/pii/S2589004221016345', label: 'Source article — iScience (ScienceDirect)' }
     ]
   },
@@ -65,6 +65,8 @@ const QUESTIONS = [
       'Carré &amp; McCormick, <em>Proc. R. Soc. B</em> 275 (2008), 2651–2656 — original report.'
     ],
     media: [
+      { when: 'before', type: 'image', url: 'images/Q3-FB1.png' },
+      { when: 'before', type: 'image', url: 'images/Q3-FB2.png' },
       { when: 'after', type: 'image', url: 'images/Q3-F1.png', caption: '<strong>Carré &amp; McCormick (2008).</strong> Scatter plots depicting the relationship between face width-to-height ratio and aggressive behaviour (number of penalty minutes per game played) in male professional hockey players for the six Canadian teams in the NHL (n=112) as a group (a) and for each individual team (b–g): (a) all Canadian NHL teams (r=0.30), (b) Calgary Flames (r=0.17), (c) Edmonton Oilers (r=0.20), (d) Montreal Canadiens (r=0.39), (e) Ottawa Senators (r=0.51), (f) Toronto Maple Leafs (r=0.37) and (g) Vancouver Canucks (r=0.24).' },
       { when: 'after', type: 'link', url: 'https://pubmed.ncbi.nlm.nih.gov/18713717/', label: 'Carré &amp; McCormick (2008), original report — PubMed' },
       { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Haselhuhn et al. (2015), “Men’s Facial Width-to-Height Ratio Predicts Aggression: A Meta-Analysis” — PMC' }

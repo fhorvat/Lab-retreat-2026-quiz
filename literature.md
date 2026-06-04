@@ -6,11 +6,14 @@ maternal chimerism:
 	link: https://www.sciencedirect.com/science/article/pii/S2589004221016345
 
 facial width:
+  before:
+	- Q3-FB1.png
+	- Q3-FB2.png
   after:
 	link: https://pubmed.ncbi.nlm.nih.gov/18713717/
 	what: 
 		title
-		fig: Figure 4
+		fig: Q3-F1
 	
   after:
 	link: https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/
