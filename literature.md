@@ -2,5 +2,13 @@ penguins:
   before:https://www.youtube.com/shorts/qSDm4EjypWk
 
 facial width:
-  after: https://pubmed.ncbi.nlm.nih.gov/18713717/
-  after:https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/
+  after:
+	link: /grill-me Prompts/canvases/008_generate-question-for-page.md
+	what: 
+		title
+		fig: Figure 4
+	
+  after:
+	link: https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/
+	what:
+		title

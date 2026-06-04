@@ -62,7 +62,7 @@ const QUESTIONS = [
     ],
     media: [
       { when: 'after', type: 'link', url: 'https://pubmed.ncbi.nlm.nih.gov/18713717/', label: 'Carré &amp; McCormick (2008), original report — PubMed' },
-      { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Full text — PubMed Central' }
+      { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Haselhuhn et al. (2015), “Men’s Facial Width-to-Height Ratio Predicts Aggression: A Meta-Analysis” — PMC' }
     ]
   },
   {
