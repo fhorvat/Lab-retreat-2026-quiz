@@ -380,6 +380,15 @@ html, body {
 .media-block { margin: 18px 0 0; }
 .media-block:empty { margin: 0; }
 
+/* multiple figures in one placement sit side by side, stacking on narrow screens */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+.media-grid .media.img img { width: 100%; height: auto; }
+
 .media.yt {
   position: relative;
   width: 100%;

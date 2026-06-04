@@ -96,7 +96,8 @@ function mediaHTML(items, when) {
   if (!items || !items.length) return '';
   const sel = items.filter(function (m) { return m.when === when; });
   if (!sel.length) return '';
-  return sel.map(function (m) {
+
+  function one(m) {
     if (m.type === 'youtube') {
       const isShort = /\/shorts\//.test(m.url);
       return '<div class="media yt' + (isShort ? ' short' : '') + '">' +
@@ -106,13 +107,23 @@ function mediaHTML(items, when) {
              (m.caption ? '<div class="media-cap">' + m.caption + '</div>' : '');
     }
     if (m.type === 'image') {
-      return '<figure class="media img"><img src="' + m.url + '" alt="' + (m.caption || 'figure') + '">' +
+      return '<figure class="media img"><img src="' + m.url + '" alt="figure" loading="lazy">' +
              (m.caption ? '<figcaption>' + m.caption + '</figcaption>' : '') + '</figure>';
     }
     // link
     return '<a class="media-link" href="' + m.url + '" target="_blank" rel="noopener">' +
            (m.label || m.url) + ' ↗</a>';
-  }).join('');
+  }
+
+  // Group consecutive images into a responsive grid so multiple figures sit side by side.
+  let out = '', imgs = [];
+  function flush() { if (imgs.length) { out += '<div class="media-grid">' + imgs.join('') + '</div>'; imgs = []; } }
+  sel.forEach(function (m) {
+    if (m.type === 'image') imgs.push(one(m));
+    else { flush(); out += one(m); }
+  });
+  flush();
+  return out;
 }
 
 // ============================================================
