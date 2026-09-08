@@ -26,14 +26,14 @@
 const QUESTIONS = [
   {
     id: 11,
-    tag: 'Animal behaviour · locomotion',
-    text: 'On steep, slippery slopes, penguins observe a right-of-way rule in which birds climbing uphill are given priority over those heading down.',
-    verdict: 'faith',
-    oneLiner: 'An appealing, orderly-sounding rule — but there is no peer-reviewed evidence that penguins follow an uphill right-of-way convention.',
-    explanation: 'Penguins do form well-worn paths ("penguin highways"), travel in single file, and there is genuine work on the biomechanics of their gait and the traffic-like dynamics of huddles. But a formal social rule granting uphill climbers priority over descenders has not been documented. The claim borrows the plausibility of human traffic norms and real penguin trail-following to dress up a convention that, as stated, lacks empirical support.',
-    refs: ['Zitterbart et al., <em>PLoS ONE</em> 6 (2011), e20260 — traveling-wave dynamics of emperor-penguin huddles (real coordinated movement; not an uphill-priority rule).'],
+    tag: 'Animal physiology · diving reflex',
+    text: 'Sloths can hold their breath underwater longer than dolphins.',
+    verdict: 'facts',
+    oneLiner: 'Three-toed sloths can slash their heart rate by two-thirds and hold their breath for up to 40 minutes — most dolphins need to resurface every 10–15 minutes.',
+    explanation: 'Sloths are surprisingly capable swimmers, and their diving reflex lets them drop their heart rate to roughly a third of its resting value, conserving oxygen far more efficiently than most mammals. This lets them stay submerged for up to about 40 minutes at a stretch, longer than most dolphin species, which typically need to surface for air every 10 to 15 minutes.',
+    refs: ['Widely documented sloth diving physiology and swimming behavior; figures are commonly cited across wildlife organizations and popular science outlets (e.g. the Sloth Conservation Foundation, BBC Earth) rather than a single dedicated peer-reviewed study.'],
     media: [
-      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/qSDm4EjypWk', caption: 'Penguins on a slope — watch before revealing.' }
+      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/dXyRTcr3kt0', caption: 'A sloth swimming — watch before revealing.' }
     ]
   },
   {
