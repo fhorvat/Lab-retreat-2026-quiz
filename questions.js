@@ -25,149 +25,156 @@
 
 const QUESTIONS = [
   {
-    id: 11,
-    tag: 'Animal behaviour · locomotion',
-    text: 'On steep, slippery slopes, penguins observe a right-of-way rule in which birds climbing uphill are given priority over those heading down.',
-    verdict: 'faith',
-    oneLiner: 'An appealing, orderly-sounding rule — but there is no peer-reviewed evidence that penguins follow an uphill right-of-way convention.',
-    explanation: 'Penguins do form well-worn paths ("penguin highways"), travel in single file, and there is genuine work on the biomechanics of their gait and the traffic-like dynamics of huddles. But a formal social rule granting uphill climbers priority over descenders has not been documented. The claim borrows the plausibility of human traffic norms and real penguin trail-following to dress up a convention that, as stated, lacks empirical support.',
-    refs: ['Zitterbart et al., <em>PLoS ONE</em> 6 (2011), e20260 — traveling-wave dynamics of emperor-penguin huddles (real coordinated movement; not an uphill-priority rule).'],
+    id: 1,
+    tag: 'Animal physiology · diving reflex',
+    text: 'Sloths can hold their breath underwater longer than dolphins.',
+    verdict: 'facts',
+    oneLiner: 'Three-toed sloths can slash their heart rate by two-thirds and hold their breath for up to 40 minutes — most dolphins need to resurface every 10–15 minutes.',
+    explanation: 'Sloths are surprisingly capable swimmers, and their diving reflex lets them drop their heart rate to roughly a third of its resting value, conserving oxygen far more efficiently than most mammals. This lets them stay submerged for up to about 40 minutes at a stretch, longer than most dolphin species, which typically need to surface for air every 10 to 15 minutes.',
+    refs: [
+      'Widely documented sloth diving physiology and swimming behavior; figures are commonly cited across wildlife organizations and popular science outlets (e.g. the Sloth Conservation Foundation, BBC Earth) rather than a single dedicated peer-reviewed study.'
+    ],
     media: [
-      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/qSDm4EjypWk', caption: 'Penguins on a slope — watch before revealing.' }
+      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/dXyRTcr3kt0', caption: 'A sloth swimming — watch before revealing.' }
     ]
   },
   {
-    id: 9,
-    tag: 'Reproductive biology · microchimerism',
-    text: 'Cells from a fetus can cross into the mother during pregnancy and persist in her tissues — including her brain — for decades afterward.',
+    id: 2,
+    tag: 'Comparative physiology · digestion',
+    text: "Frogs can't vomit. Instead, they turn their stomachs inside out and push them out through their mouths, wipe off the bad stuff with their feet, and slurp the stomach back into their body.",
     verdict: 'facts',
-    oneLiner: 'Fetal cells routinely enter the maternal circulation and engraft in maternal organs; male (Y-chromosome) DNA has been detected in women decades later, including in post-mortem brain.',
-    explanation: 'Cells traffic in both directions across the placenta, so a mother acquires genetically distinct fetal cells and the fetus acquires maternal cells — fetomaternal microchimerism. These cells can persist for decades; a standard assay detects male DNA in the blood and tissues of women who have borne sons. Microchimeric cells have been found in maternal organs and are studied for roles in wound healing, autoimmunity, and cancer — including persistence in the maternal brain.',
+    oneLiner: 'Full gastric eversion lets frogs (and some other vertebrates, like sharks) forcibly expel and clean their entire stomach through the mouth.',
+    explanation: "Because frogs lack the mammalian vomiting reflex, some species instead perform full gastric eversion: the stomach is pushed out through the mouth, exposed contents and irritants are wiped away using the forelimbs, and the organ is then swallowed back into place. It's an extreme but effective way to clear out toxins, parasites, or indigestible material.",
     refs: [
-      'Bianchi et al., <em>PNAS</em> 93 (1996), 705–708 — fetal cells persist in maternal blood for years.',
-      'Chan et al., <em>PLoS ONE</em> 7 (2012), e45592 — male microchimerism in the female human brain.'
+      'Full gastric eversion is documented across several amphibian and elasmobranch (shark) species as a recognized mechanism for expelling gastric contents; see general herpetological and vertebrate physiology references on gastric eversion.'
     ],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q2-F1.jpg', caption: '<strong>Fetal microchimerism in human brain tumours.</strong> (A, B) Representative H&amp;E-stained slides from a glioblastoma (A) and meningioma (B), 20× magnification. (C, D) X- and Y-chromosome FISH in a glioblastoma (C) and meningioma (D), 100× magnification. Arrowheads indicate XY cells; lower-right insets show a magnified representative XY cell.' },
-      { when: 'after', type: 'link', url: 'https://www.sciencedirect.com/science/article/pii/S2589004221016345', label: 'Source article — iScience (ScienceDirect)' }
-    ]
-  },
-  {
-    id: 4,
-    tag: 'Behaviour · evolutionary psychology',
-    text: 'The facial width-to-height ratio (fWHR) of adult human males is a reliable signature of aggressive behaviour.',
-    verdict: 'facts',
-    oneLiner: 'Meta-analyses across many samples do find a small, statistically reliable association between fWHR and threat/dominance behaviour, so there is a real (if modest) signal.',
-    explanation: 'The original report (Carré &amp; McCormick, 2008) linked fWHR to aggression in hockey players. Many single studies fail to replicate, and confounds — body mass, sex, photo quality — inflate early effects, which is why the claim stays contested. But the two largest syntheses to date, the meta-analyses of Geniole et al. (2015) and Haselhuhn et al. (2015), both find a small but significant fWHR–threat/aggression association across dozens of samples. On the balance of current evidence the signal is real though weak.',
-    refs: [
-      'Geniole et al., <em>PLoS ONE</em> 10 (2015), e0132726 — meta-analysis: small but significant fWHR–threat association.',
-      'Haselhuhn, Ormiston &amp; Wong, <em>PLoS ONE</em> 10 (2015), e0122637 — meta-analysis: fWHR predicts aggression.',
-      'Carré &amp; McCormick, <em>Proc. R. Soc. B</em> 275 (2008), 2651–2656 — original report.'
-    ],
-    media: [
-      { when: 'before', type: 'image', url: 'images/Q3-FB1.png' },
-      { when: 'before', type: 'image', url: 'images/Q3-FB2.png' },
-      { when: 'after', type: 'image', url: 'images/Q3-F1.png', caption: '<strong>Carré &amp; McCormick (2008).</strong> Scatter plots depicting the relationship between face width-to-height ratio and aggressive behaviour (number of penalty minutes per game played) in male professional hockey players for the six Canadian teams in the NHL (n=112) as a group (a) and for each individual team (b–g): (a) all Canadian NHL teams (r=0.30), (b) Calgary Flames (r=0.17), (c) Edmonton Oilers (r=0.20), (d) Montreal Canadiens (r=0.39), (e) Ottawa Senators (r=0.51), (f) Toronto Maple Leafs (r=0.37) and (g) Vancouver Canucks (r=0.24).' },
-      { when: 'after', type: 'link', url: 'https://pubmed.ncbi.nlm.nih.gov/18713717/', label: 'Carré &amp; McCormick (2008), original report — PubMed' },
-      { when: 'after', type: 'link', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4388848/', label: 'Haselhuhn et al. (2015), “Men’s Facial Width-to-Height Ratio Predicts Aggression: A Meta-Analysis” — PMC' }
+      { when: 'before', type: 'youtube', url: 'https://www.youtube.com/shorts/NBR1-6NQGzE', caption: 'Full gastric eversion in a frog — watch before revealing.' }
     ]
   },
   {
     id: 3,
-    tag: 'Genome biology · endogenous retroviruses',
-    text: 'Roughly 8% of the human genome consists of DNA left behind by ancient retroviruses that infected our ancestors.',
+    tag: 'Marsupial physiology · digestion',
+    text: 'Wombats produce cube-shaped poop to keep their territory markers from rolling away.',
     verdict: 'facts',
-    oneLiner: 'Human endogenous retroviruses (HERVs) and their remnants make up about 8% of our nuclear DNA — a permanent genetic fossil record of past germ-line infections.',
-    explanation: 'When a retrovirus integrates into a germ-line cell, the provirus can be inherited by all descendants. Over tens of millions of years this happened repeatedly, leaving HERVs and their solo long-terminal-repeats across the genome — several times more sequence than all protein-coding exons combined (~1.5%). Some retain functional elements the host has domesticated, including the placental fusion protein syncytin, which derives from a retroviral envelope gene.',
+    oneLiner: 'Non-uniform elasticity along the wombat intestine molds feces into cubes, which stay put on the elevated rocks and logs wombats use to mark territory.',
+    explanation: 'A 2021 biomechanics study found that wombat intestines have regions of varying stiffness around their circumference, shaping the final feces into distinct cube-like blocks rather than the usual cylindrical form. Because wombats deposit these droppings on top of rocks and logs as scent-marking territory signals, the flat sides stop them rolling away — a functional payoff for an unusual shape.',
     refs: [
-      'International Human Genome Sequencing Consortium (Lander et al.), <em>Nature</em> 409 (2001), 860–921.',
-      'Bannert &amp; Kurth, <em>PNAS</em> 101 (2004), 14572–14579 — review of HERVs.'
+      'Yang, P.J., Lee, S.J., Lee, S., Chang, D.C., Hu, D.L. &amp; Sharp, S.A. et al., <em>Soft Matter</em> 17 (2021), 475–488 — "Intestines of non-uniform stiffness mold the shape of wombat feces."'
+    ],
+    media: [
+      { when: 'after', type: 'youtube', url: 'https://www.youtube.com/shorts/202ap6CdrsY', caption: 'How wombats produce cube-shaped droppings.' }
     ]
   },
   {
-    id: 6,
-    tag: 'Neuroscience · organelle traffic',
-    text: 'In the adult mammalian brain, healthy neurons routinely donate mitochondria to damaged neighbours through tunneling nanotubes, restoring their metabolic function.',
-    verdict: 'faith',
-    oneLiner: 'Tunneling nanotubes are real in culture; routine, functionally rescuing mitochondrial transfer between adult neurons in vivo is not established.',
-    explanation: 'TNTs were described by Rustom et al. (2004), and mitochondrial transfer via TNTs has been shown in cell culture and between astrocytes and neurons in stroke models. The leap to "routinely, between neurons, in the intact adult brain, as a rescue mechanism" is not supported: direct in vivo imaging of neuron-to-neuron TNT-mediated transfer in mammals is lacking, and structures seen in vivo are often blebs or filopodia rather than bona fide TNTs.',
+    id: 4,
+    tag: 'Comparative cognition · medical diagnostics',
+    text: 'Pigeons can be trained to recognize tumors in microscope images with about 85% accuracy.',
+    verdict: 'facts',
+    oneLiner: 'Trained pigeons matched human performance distinguishing cancerous from healthy breast tissue in a controlled study.',
+    explanation: "In a 2015 study, pigeons were trained by operant conditioning to discriminate benign from malignant breast histopathology images and mammograms. Individual pigeons reached about 85% accuracy, and pooling responses from a small flock ('flock sourcing') pushed accuracy close to 99% — on par with expert human pathologists on the same image sets.",
     refs: [
-      'Rustom et al., <em>Science</em> 303 (2004), 1007–1010 — original TNT description.',
-      'Hayakawa et al., <em>Nature</em> 535 (2016), 551–555 — astrocyte→neuron transfer in stroke (vesicle-mediated, not TNT).',
-      'Cordero Cervantes &amp; Zurzolo, <em>EMBO J.</em> 40 (2021), e105789 — review of TNTs in the nervous system.'
+      'Levenson, R.M., Krupinski, E.A., Navarro, V.M. &amp; Wasserman, E.A., <em>PLOS ONE</em> 10 (2015), e0141357 — "Pigeons (Columba livia) as Trainable Observers of Pathology and Radiology Breast Cancer Images."'
     ],
     media: [
-      { when: 'before', type: 'image', url: 'images/Q5-FB1.jpg', caption: '<strong>Rustom et al. (2004) — architecture of tunnelling nanotubes (TNTs) between cultured PC12 cells.</strong> Wheat-germ-agglutinin–stained cells imaged by 3D live-cell microscopy, connected via one (A) or several (B) TNTs; rarely branched (C, arrow); (D) an x–z section from a confocal 3D reconstruction. (E) TNTs contain actin but no microtubules (α-tubulin green, phalloidin–FITC red, DAPI blue). (F, G) Ultrastructure by SEM (F) and TEM (G) of consecutive 80-nm sections.' }
-    ]
-  },
-  {
-    id: 8,
-    tag: 'Neuroscience · adult plasticity',
-    text: 'Adult hippocampal neurogenesis is a robust, lifelong phenomenon in humans and contributes substantively to learning and memory.',
-    verdict: 'faith',
-    oneLiner: 'A textbook claim that is much less settled than it sounds. The most stringent studies find human dentate-gyrus neurogenesis undetectable in adults, and the functional contribution to memory has never been directly shown in humans.',
-    explanation: 'Adult neurogenesis is well established in rodents; extending it to humans is shakier. Sorrells et al. (2018) found neuroblasts essentially absent after age ~13. Moreno-Jiménez et al. (2019) and Boldrini et al. (2018) reported the opposite using different fixation protocols, and the debate is unresolved. Critically, even studies arguing neurogenesis persists do not demonstrate a causal contribution to memory in humans — that leap is the faith part.',
-    refs: [
-      'Sorrells et al., <em>Nature</em> 555 (2018), 377–381 — "drops to undetectable levels in adults".',
-      'Moreno-Jiménez et al., <em>Nat. Med.</em> 25 (2019), 554–560 — counter-evidence, fixation-dependent.',
-      'Kempermann et al., <em>Cell Stem Cell</em> 23 (2018), 25–30 — joint statement.'
-    ],
-    media: [
-      { when: 'before', type: 'image', url: 'images/Q6-FB1.png', caption: '<strong>Retrospective ¹⁴C birth-dating of human neurons.</strong> ¹⁴C concentrations in hippocampal-neuron genomic DNA correspond to a time after the individual’s date of birth, taken as evidence for neurogenesis continuing throughout life (Spalding et al., 2013).' }
+      { when: 'after', type: 'link', url: 'https://www.science.org/content/article/pigeons-spot-cancer-well-human-experts', label: 'Coverage of the pigeon cancer-detection study — Science' }
     ]
   },
   {
     id: 5,
-    tag: 'Physiology · metabolism',
-    text: 'Healthy adult humans retain deposits of metabolically active brown fat that burn energy to generate heat — tissue long thought to disappear after infancy.',
+    tag: 'Human genetics · sensory reflex',
+    text: 'Autosomal-dominant Compelling Helio-Ophthalmic Outburst (ACHOO) syndrome is an inherited condition that causes sneezing when looking at bright lights.',
     verdict: 'facts',
-    oneLiner: 'PET–CT and biopsy studies confirmed depots of functional, cold-activated brown adipose tissue in adults, burning glucose and fat to produce heat.',
-    explanation: 'Brown adipose tissue (BAT) dissipates chemical energy as heat through the mitochondrial uncoupling protein UCP1. It was long believed to vanish after infancy, but in 2009 several groups independently used 18F-FDG PET–CT to image cold-activated, UCP1-positive BAT in the supraclavicular and paravertebral regions of healthy adults. BAT activity is inversely correlated with BMI and is a target for metabolic-disease research.',
+    oneLiner: 'Also called the photic sneeze reflex, it affects roughly a quarter of people and follows an autosomal dominant inheritance pattern.',
+    explanation: 'The photic sneeze reflex causes sudden sneezing triggered by exposure to bright light, most often sunlight. Family studies found it segregates as an autosomal dominant trait — a single copy of the associated variant is enough to produce the reflex — and it affects an estimated 18–35% of people.',
     refs: [
-      'Cypess et al., <em>N. Engl. J. Med.</em> 360 (2009), 1509–1517.',
-      'van Marken Lichtenbelt et al., <em>NEJM</em> 360 (2009), 1500–1508.',
-      'Virtanen et al., <em>NEJM</em> 360 (2009), 1518–1525.'
+      'Peroutka, S.J. &amp; Peroutka, L.A., <em>New England Journal of Medicine</em> 310 (1984), 599–600 — "Autosomal dominant transmission of the \'photic sneeze reflex.\'"'
+    ]
+  },
+  {
+    id: 6,
+    tag: 'Microbiome · popular myth',
+    text: 'Bacterial cells outnumber human cells in your body 10 to 1.',
+    verdict: 'faith',
+    oneLiner: 'A 2016 recalculation found the true ratio is close to 1:1 — the "10:1" figure traces to an unsupported 1970s estimate.',
+    explanation: "The '10 bacterial cells for every human cell' figure has been repeated for decades, but it traces back to a rough, never-rigorously-sourced 1970s estimate. A careful 2016 recalculation using updated cell-count data for both bacteria and human tissues found the actual ratio is close to 1:1 — though bacteria still vastly outnumber human cells in total gene content and metabolic diversity.",
+    refs: [
+      'Sender, R., Fuchs, S. &amp; Milo, R., <em>PLOS Biology</em> 14 (2016), e1002533 — "Revised Estimates for the Number of Human and Bacteria Cells in the Body."'
     ]
   },
   {
     id: 7,
-    tag: 'Human genetics · disease resistance',
-    text: 'A natural mutation in the CCR5 gene (Δ32) makes people who inherit two copies almost completely resistant to infection by the common strain of HIV.',
-    verdict: 'facts',
-    oneLiner: 'Homozygous CCR5-Δ32 carriers lack a working CCR5 co-receptor, which most HIV-1 strains need to enter cells, and are highly resistant to infection.',
-    explanation: 'CCR5 is the chemokine co-receptor that R5-tropic HIV-1 uses, alongside CD4, to enter T cells. The Δ32 allele is a 32-bp deletion producing a truncated receptor that never reaches the cell surface. People homozygous for Δ32 (~1% of European ancestry) are strongly protected against R5-strain infection; heterozygotes progress more slowly. This is the basis of the only confirmed HIV cures — the "Berlin" and "London" patients, who received bone-marrow transplants from Δ32/Δ32 donors.',
+    tag: 'Genome biology · retracted claim',
+    text: 'The human genome contains over 100 genes acquired directly from bacteria through horizontal gene transfer.',
+    verdict: 'faith',
+    oneLiner: 'This claim from the original 2001 draft genome paper was largely retracted after follow-up analyses.',
+    explanation: 'The initial 2001 draft human genome sequencing paper proposed that over 100 genes had been acquired directly from bacteria via horizontal gene transfer. More rigorous follow-up phylogenetic analyses showed that most of these genes were actually ancestral genes independently lost in the other lineages used for comparison, rather than genuinely new bacterial acquisitions — one of the most cited examples of an early genomic claim being substantially walked back.',
     refs: [
-      'Samson et al., <em>Nature</em> 382 (1996), 722–725.',
-      'Liu et al., <em>Cell</em> 86 (1996), 367–377 — Δ32 homozygotes resist HIV-1.',
-      'Hütter et al., <em>NEJM</em> 360 (2009), 692–698 — the Berlin patient.'
+      'Salzberg, S.L., White, O., Peterson, J. &amp; Eisen, J.A., <em>Science</em> 292 (2001), 1903–1906 — "Microbial genes in the human genome: lateral transfer or gene loss?"',
+      'Stanhope, M.J. et al., <em>Nature</em> 411 (2001), 940–944 — "Phylogenetic analyses do not support horizontal gene transfers from bacteria to vertebrates."'
+    ]
+  },
+  {
+    id: 8,
+    tag: 'Glycobiology · infant nutrition',
+    text: "The third most abundant solid component of human breast milk is a class of complex sugars that a baby's own digestive enzymes cannot break down.",
+    verdict: 'facts',
+    oneLiner: 'Human milk oligosaccharides (HMOs) pass through infants undigested, acting instead as prebiotics that feed beneficial gut bacteria.',
+    explanation: 'After lactose and fat, human milk oligosaccharides are the third most abundant solid component of breast milk, yet infants lack the enzymes needed to break most of them down. Instead, HMOs act as prebiotics, selectively nourishing beneficial gut bacteria such as <em>Bifidobacterium longum</em> subsp. <em>infantis</em>, helping shape the infant gut microbiome and support immune system development.',
+    refs: [
+      'Bode, L., <em>Glycobiology</em> 22 (2012), 1147–1162 — "Human milk oligosaccharides: every baby needs a sugar mama."'
+    ]
+  },
+  {
+    id: 9,
+    tag: 'Extremophile biology · DNA repair',
+    text: 'There is a bacterium nicknamed "Conan the Bacterium" that can survive 10,000 times the lethal human dose of radiation by stitching its shattered genome back together within hours.',
+    verdict: 'facts',
+    oneLiner: 'Deinococcus radiodurans keeps multiple backup genome copies and highly efficient DNA-repair machinery, letting it reassemble a genome shattered into hundreds of fragments.',
+    explanation: "Deinococcus radiodurans earned its nickname by tolerating radiation doses roughly 10,000 times what would kill a human. Extreme radiation or desiccation shatters its chromosome into hundreds of fragments, but the bacterium keeps multiple redundant genome copies and an unusually efficient DNA-repair system that stitches the fragments back into an intact, accurate genome within hours. Recent work has further detailed a manganese-antioxidant complex that helps protect its proteins — including its repair enzymes — from oxidative damage during this process.",
+    refs: [
+      'Cox, M.M. &amp; Battista, J.R., <em>Nature Reviews Microbiology</em> 3 (2005), 882–892 — "Deinococcus radiodurans — the consummate survivor."',
+      'Northwestern University research on the manganese-antioxidant mechanism, reported by NPR and CNN, Dec 2024.'
     ],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q8-F1.jpg' }
+      { when: 'after', type: 'link', url: 'https://www.npr.org/2024/12/13/1219032799/bacteria-radiation-resistant-conan-bacterium', label: 'NPR — How "Conan the Bacterium" survives extreme radiation' }
+    ]
+  },
+  {
+    id: 10,
+    tag: 'Neuroscience · memory',
+    text: 'Some cells use prions to store memories.',
+    verdict: 'facts',
+    oneLiner: 'The neuronal protein CPEB forms self-templating, prion-like aggregates at synapses that are needed to maintain long-term memory.',
+    explanation: 'Prion-like protein aggregation is normally associated with disease, but neurons appear to have repurposed the same trick for a beneficial function. The neuronal protein CPEB forms self-templating, prion-like aggregates at synapses, and this aggregated state is required to maintain long-term memory — demonstrated in <em>Aplysia</em> and <em>Drosophila</em> studies.',
+    refs: [
+      'Si, K., Lindquist, S. &amp; Kandel, E.R., <em>Cell</em> 115 (2003), 893–904 — "A neuronal isoform of CPEB is required for local protein synthesis and stabilization of synapse-specific long-term facilitation."',
+      'Majumdar, A. et al., <em>Cell</em> 148 (2012), 515–529 — "Critical Role of Amyloid-like Oligomers of Drosophila Orb2 in the Persistence of Memory."'
+    ]
+  },
+  {
+    id: 11,
+    tag: "Comparative oncology · Peto's paradox",
+    text: 'Elephants, despite having far more cells than humans and thus more chances for any single cell to become cancerous, get cancer at roughly the same rate as humans.',
+    verdict: 'facts',
+    oneLiner: "Known as Peto's Paradox — resolved in elephants partly by ~20 extra copies of the tumor-suppressor gene TP53.",
+    explanation: "Cancer risk should scale with the number of cells an organism has and how long it lives, yet large, long-lived animals like elephants don't show proportionally higher cancer rates — a discrepancy epidemiologist Richard Peto first noted, hence \"Peto's Paradox.\" Elephants carry around 20 copies of the tumor-suppressor gene TP53, versus one gene pair in humans, sharpening their cells' apoptotic response to DNA damage and eliminating dangerously damaged cells more aggressively before they can become cancerous.",
+    refs: [
+      'Abegglen, L.M. et al., <em>JAMA</em> 314 (2015), 1850–1860 — "Potential Mechanisms for Cancer Resistance in Elephants and Comparative Cellular Response to DNA Damage in Humans."'
     ]
   },
   {
     id: 12,
-    tag: 'Epigenetics · transgenerational inheritance',
-    text: 'The effects of famine or psychological trauma are passed to children and grandchildren through inherited epigenetic marks.',
-    verdict: 'faith',
-    oneLiner: 'Striking human cohort correlations exist, but evidence that acquired epigenetic marks are transmitted through the human germ line — rather than reflecting shared environment or direct in-utero exposure — remains weak and contested.',
-    explanation: 'The Dutch Hunger Winter cohorts show methylation differences and metabolic effects decades after prenatal famine, and Yehuda and colleagues reported altered stress-gene methylation in Holocaust survivors and their children. These findings are real. But genuine transgenerational inheritance in mammals must survive two rounds of germline epigenetic reprogramming, which erases most marks; the human data are correlational, small, and confounded by shared environment, and cannot separate truly inherited marks from direct in-utero exposure of the fetus (and its already-forming germ cells). The strong claim — heritable epigenetic transmission of experience in humans — is not established.',
-    refs: [
-      'Heijmans et al., <em>PNAS</em> 105 (2008), 17046–17049 — Dutch Hunger Winter methylation.',
-      'Yehuda et al., <em>Biol. Psychiatry</em> 80 (2016), 372–380 — intergenerational stress-gene methylation.',
-      'Horsthemke, <em>Nat. Commun.</em> 9 (2018), 2973 — critical review: little evidence for transgenerational epigenetic inheritance in humans.'
-    ]
-  },
-  {
-    id: 1,
-    tag: 'Cell biology · stress response',
-    text: 'When cells are stressed, ribosomes are protected by forming inactive ribosome dimers.',
+    tag: 'Reproductive biology · cross-species cloning',
+    text: 'There is a documented case of a queen ant giving birth to males of a completely different species.',
     verdict: 'facts',
-    oneLiner: 'Stress-induced ribosome dimerisation is a conserved, structurally characterised way to preserve translation machinery during starvation and other insults.',
-    explanation: 'The 2024 cryo-EM structure of the stress-induced mammalian 100S-like dimer showed how two 80S ribosomes inactivate each other at their decoding centres, preserving the pool for rapid recovery once stress is relieved. Bacterial 100S particles have been known for longer.',
-    refs: ['Karki et al., <em>Science</em> 384 (2024), doi:10.1126/science.adr4287'],
+    oneLiner: 'Iberian harvester ant queens (Messor ibericus) store sperm from another species (M. structor) and then delete their own genetic material from certain eggs, effectively cloning that other species\' males — a phenomenon the discoverers named "xenoparity."',
+    explanation: 'Iberian harvester ant queens (<em>Messor ibericus</em>) mate with and store sperm from a distantly related species, <em>M. structor</em> (lineages split ~5 million years ago). To produce the <em>M. structor</em> males her colony needs, she strips her own genetic material from certain eggs before fertilization, effectively cloning the stored foreign sperm into full males of the other species. Researchers coined the term "xenoparity" ("foreign birth") for this newly described reproductive strategy.',
+    refs: [
+      'Juvé, Y., Lutrat, C., Ha, A. et al., <em>Nature</em> (2025) — "One mother for two species via obligate cross-species cloning in ants," doi:10.1038/s41586-025-09425-w.'
+    ],
     media: [
-      { when: 'after', type: 'image', url: 'images/Q10-F1.png' }
+      { when: 'after', type: 'link', url: 'https://www.smithsonianmag.com/smart-news/these-ant-queens-seem-to-defy-biology-they-lay-eggs-that-hatch-into-another-species-180987292/', label: 'Smithsonian Magazine — coverage of the xenoparity discovery' }
     ]
   }
 ];
