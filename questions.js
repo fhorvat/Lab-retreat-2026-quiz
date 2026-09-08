@@ -147,7 +147,7 @@ const QUESTIONS = [
     refs: [
       'Bode, L., <em>Glycobiology</em> 22 (2012), 1147–1162 — "Human milk oligosaccharides: every baby needs a sugar mama."'
     ]
-  }
+  },
     {
     id: 11,
     tag: 'Extremophile biology · DNA repair',
