@@ -311,11 +311,13 @@ function startPresenter() {
   }
 
   async function refresh() {
-    let cur = 0;
+    let cur;
     try {
       const st = await getState();
       cur = Number(st.currentQuestion || 0);
-    } catch (e) {}
+    } catch (e) {
+      return;   // transient fetch failure — keep showing whatever is already on screen
+    }
     const q = qById(cur);
 
     if (shownId !== cur) {
