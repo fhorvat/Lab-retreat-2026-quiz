@@ -24,7 +24,7 @@
 //   ?action=results                       -> { deviceCount, results:{id:{facts,myth}} }
 // ============================================================
 
-var PRESENTER_KEY = 'changeme';   // <-- change this; must match ?key= in the presenter URL
+var PRESENTER_KEY = 'labRetreat2026';   // <-- change this; must match ?key= in the presenter URL
 
 function doGet(e) {
   try {
