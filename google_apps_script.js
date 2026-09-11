@@ -18,10 +18,11 @@
 //   Deploy > Manage deployments > Edit (pencil) > Version: New > Deploy
 //
 // Endpoints (all GET):
-//   ?action=state                         -> { currentQuestion }
-//   ?action=setState&q=N&key=KEY          -> sets the live question
-//   ?action=vote&deviceId=&topicId=&vote= -> records a vote (facts|myth)
-//   ?action=results                       -> { deviceCount, results:{id:{facts,myth}} }
+//   ?action=state                          -> { currentQuestion, revealed }
+//   ?action=setState&q=N&key=KEY           -> sets the live question (also clears revealed)
+//   ?action=setReveal&revealed=0|1&key=KEY -> sets whether the answer is revealed
+//   ?action=vote&deviceId=&topicId=&vote=  -> records a vote (facts|myth)
+//   ?action=results                        -> { deviceCount, results:{id:{facts,myth}} }
 // ============================================================
 
 var PRESENTER_KEY = 'labRetreat2026';   // <-- change this; must match ?key= in the presenter URL
@@ -30,10 +31,11 @@ function doGet(e) {
   try {
     var p = (e && e.parameter) || {};
     var action = p.action || 'results';
-    if (action === 'vote')     return handleVote(p);
-    if (action === 'state')    return handleState();
-    if (action === 'setState') return handleSetState(p);
-    if (action === 'reset')    return handleReset(p);
+    if (action === 'vote')      return handleVote(p);
+    if (action === 'state')     return handleState();
+    if (action === 'setState')  return handleSetState(p);
+    if (action === 'setReveal') return handleSetReveal(p);
+    if (action === 'reset')     return handleReset(p);
     return handleResults();
   } catch (err) {
     return json({ status: 'error', message: err.toString() });
@@ -54,16 +56,29 @@ function doPost(e) {
 
 // ── Presenter-locked state (stored in Script Properties) ─────
 function handleState() {
-  var q = PropertiesService.getScriptProperties().getProperty('currentQuestion');
-  return json({ status: 'ok', currentQuestion: Number(q || 0) });
+  var props = PropertiesService.getScriptProperties();
+  var q = props.getProperty('currentQuestion');
+  var revealed = props.getProperty('revealed');
+  return json({ status: 'ok', currentQuestion: Number(q || 0), revealed: revealed === '1' });
 }
 
 function handleSetState(p) {
   if (String(p.key) !== String(PRESENTER_KEY)) {
     return json({ status: 'error', message: 'bad key' });
   }
-  PropertiesService.getScriptProperties().setProperty('currentQuestion', String(Number(p.q || 0)));
-  return json({ status: 'ok', currentQuestion: Number(p.q || 0) });
+  var props = PropertiesService.getScriptProperties();
+  props.setProperty('currentQuestion', String(Number(p.q || 0)));
+  props.setProperty('revealed', '0');   // moving to a question always starts unrevealed
+  return json({ status: 'ok', currentQuestion: Number(p.q || 0), revealed: false });
+}
+
+function handleSetReveal(p) {
+  if (String(p.key) !== String(PRESENTER_KEY)) {
+    return json({ status: 'error', message: 'bad key' });
+  }
+  var val = (p.revealed === '1' || p.revealed === 'true') ? '1' : '0';
+  PropertiesService.getScriptProperties().setProperty('revealed', val);
+  return json({ status: 'ok', revealed: val === '1' });
 }
 
 // Clear all votes (keeps the header row). Presenter-key protected.

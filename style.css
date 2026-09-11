@@ -11,6 +11,7 @@
   --myth:        #ea580c;   /* amber */
   --myth-dark:   #c2410c;
   --success:      #16a34a;
+  --danger:       #dc2626;
   --bg:           #f8fafc;
   --card:         #ffffff;
   --text:         #1e293b;
@@ -282,6 +283,22 @@ html, body {
   color: var(--text);
 }
 .answer .refs div { margin: 3px 0; }
+
+/* ── VOTER: RIGHT / WRONG RESULT BANNER ──────────────────── */
+.result {
+  margin-top: 4px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left-width: 5px;
+  padding: 20px 22px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  background: var(--bg);
+}
+.result.correct   { border-left-color: var(--success); background: #f0fdf4; color: #14532d; }
+.result.incorrect { border-left-color: var(--danger);  background: #fef2f2; color: #7f1d1d; }
+.result.novote    { border-left-color: var(--text-light); background: var(--bg); color: var(--text-light); }
 
 /* ── PRESENTER: JOIN / QR ────────────────────────────────── */
 .join {

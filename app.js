@@ -35,8 +35,9 @@ function getDeviceId() {
 const DEVICE_ID = getDeviceId();
 
 // ── Backend layer (real Apps Script  OR  local-demo fallback) ─
-const LS_STATE = 'faf_local_state';
-const LS_VOTES = 'faf_local_votes';
+const LS_STATE    = 'faf_local_state';
+const LS_VOTES    = 'faf_local_votes';
+const LS_REVEALED = 'faf_local_revealed';
 
 async function api(action, extra) {
   const qs = new URLSearchParams(Object.assign({ action }, extra || {}));
@@ -45,9 +46,21 @@ async function api(action, extra) {
 }
 
 function localGetState() {
-  return { status: 'ok', currentQuestion: Number(localStorage.getItem(LS_STATE) || 0) };
+  return {
+    status: 'ok',
+    currentQuestion: Number(localStorage.getItem(LS_STATE) || 0),
+    revealed: localStorage.getItem(LS_REVEALED) === '1'
+  };
 }
-function localSetState(q) { localStorage.setItem(LS_STATE, String(q)); return { status: 'ok' }; }
+function localSetState(q) {
+  localStorage.setItem(LS_STATE, String(q));
+  localStorage.setItem(LS_REVEALED, '0');   // moving to a question always starts unrevealed
+  return { status: 'ok' };
+}
+function localSetReveal(revealed) {
+  localStorage.setItem(LS_REVEALED, revealed ? '1' : '0');
+  return { status: 'ok' };
+}
 function localVote(topicId, vote) {
   const v = JSON.parse(localStorage.getItem(LS_VOTES) || '{}');
   v[DEVICE_ID + '_' + topicId] = { topicId: String(topicId), vote: vote, deviceId: DEVICE_ID, ts: Date.now() };
@@ -68,6 +81,10 @@ function localResults() {
 
 async function getState()        { return LOCAL_MODE ? localGetState()   : api('state'); }
 async function pushState(q)       { return LOCAL_MODE ? localSetState(q)   : api('setState', { q: q, key: PRESENTER_KEY }); }
+async function pushReveal(revealed) {
+  return LOCAL_MODE ? localSetReveal(revealed)
+                    : api('setReveal', { revealed: revealed ? '1' : '0', key: PRESENTER_KEY });
+}
 async function sendVote(id, vote, title) {
   return LOCAL_MODE ? localVote(id, vote)
                     : api('vote', { deviceId: DEVICE_ID, topicId: id, topicTitle: title || '', vote: vote });
@@ -132,11 +149,26 @@ function mediaHTML(items, when) {
 // ============================================================
 function startVoter() {
   badge.textContent = LOCAL_MODE ? 'Demo' : 'Live vote';
-  let renderedId = null;
+  let renderedKey = null;   // e.g. 'waiting', '<id>:vote', '<id>:result'
+
+  const LS_MY_VOTES = 'faf_my_votes';
+  function saveMyVote(id, vote) {
+    try {
+      const v = JSON.parse(localStorage.getItem(LS_MY_VOTES) || '{}');
+      v[id] = vote;
+      localStorage.setItem(LS_MY_VOTES, JSON.stringify(v));
+    } catch (e) {}
+  }
+  function loadMyVote(id) {
+    try {
+      const v = JSON.parse(localStorage.getItem(LS_MY_VOTES) || '{}');
+      return v[id] || null;
+    } catch (e) { return null; }
+  }
 
   function renderWaiting() {
-    if (renderedId === 0) return;
-    renderedId = 0;
+    if (renderedKey === 'waiting') return;
+    renderedKey = 'waiting';
     app.innerHTML =
       '<div class="waiting">' +
         '<div class="spinner"></div>' +
@@ -146,18 +178,20 @@ function startVoter() {
   }
 
   function renderQuestion(q) {
-    if (renderedId === q.id) return;   // avoid wiping the user's selection on every poll
-    renderedId = q.id;
+    const key = q.id + ':vote';
+    if (renderedKey === key) return;   // avoid wiping the user's selection on every poll
+    renderedKey = key;
+    const myVote = loadMyVote(q.id);
     app.innerHTML =
       '<div class="card">' +
         '<div class="q-progress">Question ' + (qIndex(q.id) + 1) + ' of ' + QUESTIONS.length + '</div>' +
         '<div class="q-tag">' + q.tag + '</div>' +
         '<h2 class="q-text">' + esc(q.text) + '</h2>' +
         '<div class="vote-row">' +
-          '<button class="vote-btn facts" data-vote="facts">Facts<span class="sub">Real, peer-reviewed</span></button>' +
-          '<button class="vote-btn myth" data-vote="myth">Myth<span class="sub">Plausible, unsupported</span></button>' +
+          '<button class="vote-btn facts' + (myVote === 'facts' ? ' selected' : '') + '" data-vote="facts">Facts<span class="sub">Real, peer-reviewed</span></button>' +
+          '<button class="vote-btn myth' + (myVote === 'myth' ? ' selected' : '') + '" data-vote="myth">Myth<span class="sub">Plausible, unsupported</span></button>' +
         '</div>' +
-        '<div class="vote-status" id="voteStatus"></div>' +
+        '<div class="vote-status" id="voteStatus">' + (myVote ? '✓ Vote recorded — you can change it while the question is open' : '') + '</div>' +
       '</div>';
 
     const status = document.getElementById('voteStatus');
@@ -167,6 +201,7 @@ function startVoter() {
         app.querySelectorAll('.vote-btn').forEach(function (b) { b.classList.remove('selected'); });
         btn.classList.add('selected');
         status.textContent = 'Saving…';
+        saveMyVote(q.id, vote);
         sendVote(q.id, vote, q.text)
           .then(function () { status.textContent = '✓ Vote recorded — you can change it while the question is open'; })
           .catch(function () { status.textContent = '⚠ Could not save — tap again'; });
@@ -174,12 +209,39 @@ function startVoter() {
     });
   }
 
+  function renderResult(q) {
+    const key = q.id + ':result';
+    if (renderedKey === key) return;
+    renderedKey = key;
+    const myVote = loadMyVote(q.id);
+    const verdictLabel = q.verdict === 'facts' ? 'Facts' : 'Myth';
+    let cls, headline;
+    if (!myVote) {
+      cls = 'novote';
+      headline = 'No vote recorded — the answer was <strong>' + verdictLabel + '</strong>';
+    } else if (myVote === q.verdict) {
+      cls = 'correct';
+      headline = '✓ You got it! It was <strong>' + verdictLabel + '</strong>';
+    } else {
+      cls = 'incorrect';
+      headline = '✗ Not quite — it was actually <strong>' + verdictLabel + '</strong>';
+    }
+    app.innerHTML =
+      '<div class="card">' +
+        '<div class="q-progress">Question ' + (qIndex(q.id) + 1) + ' of ' + QUESTIONS.length + '</div>' +
+        '<div class="q-tag">' + q.tag + '</div>' +
+        '<h2 class="q-text">' + esc(q.text) + '</h2>' +
+        '<div class="result ' + cls + '">' + headline + '</div>' +
+      '</div>';
+  }
+
   async function tick() {
     try {
       const st = await getState();
       const cur = Number(st.currentQuestion || 0);
       const q = qById(cur);
-      if (q) renderQuestion(q); else renderWaiting();
+      if (!q) { renderWaiting(); return; }
+      if (st.revealed) renderResult(q); else renderQuestion(q);
     } catch (e) { /* keep last view on transient errors */ }
   }
   tick();
@@ -344,6 +406,7 @@ function startPresenter() {
     revealed = !revealed;
     if (revealed) renderAnswer(q); else el('pAnswer').innerHTML = '';
     el('pReveal').textContent = revealed ? 'Hide answer' : 'Reveal answer';
+    pushReveal(revealed).catch(function () {});
   });
   el('pReset').addEventListener('click', function () {
     if (!confirm('Clear ALL votes for every question? This cannot be undone.')) return;
