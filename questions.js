@@ -1,5 +1,5 @@
 // ============================================================
-// Facts, or Faith? — question bank
+// Facts, or Myth? — question bank
 //
 // Each item:
 //   id          stable number used as topicId in the vote backend
@@ -60,9 +60,6 @@ const QUESTIONS = [
     refs: [
       'Yang, P.J., Lee, S.J., Lee, S., Chang, D.C., Hu, D.L. &amp; Sharp, S.A. et al., <em>Soft Matter</em> 17 (2021), 475–488 — Intestines of non-uniform stiffness mold the shape of wombat feces.'
     ],
-    media: [
-      { when: 'after', type: 'youtube', url: 'https://www.youtube.com/shorts/202ap6CdrsY', caption: 'How wombats produce cube-shaped droppings.' }
-    ]
   },
   {
     id: 4,
@@ -79,8 +76,8 @@ const QUESTIONS = [
   {
     id: 5,
     tag: 'Comparative cognition · medical diagnostics',
-    text: 'Pigeons can be trained to recognize tumors in microscope images with about 85% accuracy.',
-    verdict: 'facts',
+    text: 'People are better in recognizing tumors in microscope images than pidgeons.',
+    verdict: 'myth',
     oneLiner: 'Trained pigeons matched human performance distinguishing cancerous from healthy breast tissue in a controlled study.',
     explanation: "In a 2015 study, pigeons were trained by operant conditioning to discriminate benign from malignant breast histopathology images and mammograms. Individual pigeons reached about 85% accuracy, and pooling responses from a small flock ('flock sourcing') pushed accuracy close to 99% — on par with expert human pathologists on the same image sets.",
     refs: [
@@ -102,23 +99,10 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 7,
-    tag: 'Physiology · metabolism',
-    text: 'Healthy adult humans retain deposits of metabolically active brown fat that burn energy to generate heat — tissue long thought to disappear after infancy.',
-    verdict: 'facts',
-    oneLiner: 'PET–CT and biopsy studies confirmed depots of functional, cold-activated brown adipose tissue in adults, burning glucose and fat to produce heat.',
-    explanation: 'Brown adipose tissue (BAT) dissipates chemical energy as heat through the mitochondrial uncoupling protein UCP1. It was long believed to vanish after infancy, but in 2009 several groups independently used 18F-FDG PET–CT to image cold-activated, UCP1-positive BAT in the supraclavicular and paravertebral regions of healthy adults. BAT activity is inversely correlated with BMI and is a target for metabolic-disease research.',
-    refs: [
-      'Cypess et al., <em>N. Engl. J. Med.</em> 360 (2009), 1509–1517.',
-      'van Marken Lichtenbelt et al., <em>NEJM</em> 360 (2009), 1500–1508.',
-      'Virtanen et al., <em>NEJM</em> 360 (2009), 1518–1525.'
-    ]
-  },
-  {
     id: 8,
     tag: 'Microbiome',
     text: 'Bacterial cells outnumber human cells in your body 10 to 1.',
-    verdict: 'faith',
+    verdict: 'myth',
     oneLiner: 'A 2016 recalculation found the true ratio is close to 1:1 — the "10:1" figure traces to an unsupported 1970s estimate.',
     explanation: "The '10 bacterial cells for every human cell' figure has been repeated for decades, but it traces back to a rough, never-rigorously-sourced 1970s estimate. A careful 2016 recalculation using updated cell-count data for both bacteria and human tissues found the actual ratio is close to 1:1 — though bacteria still vastly outnumber human cells in total gene content and metabolic diversity.",
     refs: [
@@ -129,7 +113,7 @@ const QUESTIONS = [
     id: 9,
     tag: 'Genome biology',
     text: 'The human genome contains over 100 genes acquired directly from bacteria through horizontal gene transfer.',
-    verdict: 'faith',
+    verdict: 'myth',
     oneLiner: 'This claim from the original 2001 draft genome paper was largely retracted after follow-up analyses.',
     explanation: 'The initial 2001 draft human genome sequencing paper proposed that over 100 genes had been acquired directly from bacteria via horizontal gene transfer. More rigorous follow-up phylogenetic analyses showed that most of these genes were actually ancestral genes independently lost in the other lineages used for comparison, rather than genuinely new bacterial acquisitions — one of the most cited examples of an early genomic claim being substantially walked back.',
     refs: [
@@ -146,20 +130,6 @@ const QUESTIONS = [
     explanation: 'After lactose and fat, human milk oligosaccharides are the third most abundant solid component of breast milk, yet infants lack the enzymes needed to break most of them down. Instead, HMOs act as prebiotics, selectively nourishing beneficial gut bacteria such as <em>Bifidobacterium longum</em> subsp. <em>infantis</em>, helping shape the infant gut microbiome and support immune system development.',
     refs: [
       'Bode, L., <em>Glycobiology</em> 22 (2012), 1147–1162 — "Human milk oligosaccharides: every baby needs a sugar mama."'
-    ]
-  },
-    {
-    id: 11,
-    tag: 'Extremophile biology · DNA repair',
-    text: 'There is a bacterium nicknamed "Conan the Bacterium" that can survive 10,000 times the lethal human dose of radiation by stitching its shattered genome back together within hours.',
-    verdict: 'facts',
-    oneLiner: 'Deinococcus radiodurans keeps multiple backup genome copies and highly efficient DNA-repair machinery, letting it reassemble a genome shattered into hundreds of fragments.',
-    explanation: "Deinococcus radiodurans earned its nickname by tolerating radiation doses roughly 10,000 times what would kill a human. Extreme radiation or desiccation shatters its chromosome into hundreds of fragments, but the bacterium keeps multiple redundant genome copies and an unusually efficient DNA-repair system that stitches the fragments back into an intact, accurate genome within hours. Recent work has further detailed a manganese-antioxidant complex that helps protect its proteins — including its repair enzymes — from oxidative damage during this process.",
-    refs: [
-      'Cox, M.M. &amp; Battista, J.R., <em>Nature Reviews Microbiology</em> 3 (2005), 882–892 — "Deinococcus radiodurans — the consummate survivor."',
-    ],
-    media: [
-      { when: 'after', type: 'link', url: 'https://www.npr.org/2024/12/13/1219032799/bacteria-radiation-resistant-conan-bacterium', label: 'NPR — How "Conan the Bacterium" survives extreme radiation' }
     ]
   },
   {

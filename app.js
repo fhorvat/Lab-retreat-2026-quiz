@@ -1,5 +1,5 @@
 // ============================================================
-// Facts, or Faith? — frontend logic
+// Facts, or Myth? — frontend logic
 //
 //  • Voter view (default): polls the live question, shows two
 //    vote buttons, never shows answers.
@@ -59,7 +59,7 @@ function localResults() {
   const results = {}, devices = {};
   Object.keys(v).forEach(function (k) {
     const r = v[k];
-    if (!results[r.topicId]) results[r.topicId] = { facts: 0, faith: 0 };
+    if (!results[r.topicId]) results[r.topicId] = { facts: 0, myth: 0 };
     if (results[r.topicId][r.vote] !== undefined) results[r.topicId][r.vote]++;
     devices[r.deviceId] = true;
   });
@@ -155,7 +155,7 @@ function startVoter() {
         '<h2 class="q-text">' + esc(q.text) + '</h2>' +
         '<div class="vote-row">' +
           '<button class="vote-btn facts" data-vote="facts">Facts<span class="sub">Real, peer-reviewed</span></button>' +
-          '<button class="vote-btn faith" data-vote="faith">Faith<span class="sub">Plausible, unsupported</span></button>' +
+          '<button class="vote-btn myth" data-vote="myth">Myth<span class="sub">Plausible, unsupported</span></button>' +
         '</div>' +
         '<div class="vote-status" id="voteStatus"></div>' +
       '</div>';
@@ -213,7 +213,7 @@ function startPresenter() {
         '<div class="meta"><span id="pVoters"></span><span id="pCount"></span></div>' +
         '<div class="bar" id="pBar"></div>' +
         '<div class="legend"><span class="facts"><span class="dot"></span><span id="pFacts"></span></span>' +
-        '<span class="faith"><span class="dot"></span><span id="pFaith"></span></span></div>' +
+        '<span class="myth"><span class="dot"></span><span id="pMyth"></span></span></div>' +
       '</div>' +
       '<div class="media-block" id="pBefore"></div>' +
       '<div id="pAnswer"></div>' +
@@ -266,7 +266,7 @@ function startPresenter() {
     if (!q) {
       el('pProgress').textContent = 'Not started';
       el('pTag').textContent = '';
-      el('pText').textContent = 'Fact or Faith, are you ready?';
+      el('pText').textContent = 'Fact or Myth, are you ready?';
     } else {
       el('pProgress').textContent = 'Question ' + (qIndex(q.id) + 1) + ' of ' + QUESTIONS.length;
       el('pTag').textContent = q.tag;
@@ -278,22 +278,22 @@ function startPresenter() {
   function renderTally(q, data) {
     const results = (data && data.results) || {};
     const dc = (data && data.deviceCount) || 0;
-    const r = (q && results[q.id]) || { facts: 0, faith: 0 };
-    const total = r.facts + r.faith;
+    const r = (q && results[q.id]) || { facts: 0, myth: 0 };
+    const total = r.facts + r.myth;
     const fPct = total ? Math.round(r.facts / total * 100) : 0;
     const hPct = total ? 100 - fPct : 0;
 
     el('pVoters').textContent = dc + (dc === 1 ? ' person connected' : ' people connected');
     el('pCount').textContent  = total + (total === 1 ? ' vote' : ' votes');
     el('pFacts').textContent  = 'Facts · ' + r.facts;
-    el('pFaith').textContent  = 'Faith · ' + r.faith;
+    el('pMyth').textContent   = 'Myth · '  + r.myth;
 
     if (total === 0) {
       el('pBar').innerHTML = '<div class="seg empty">No votes yet</div>';
     } else {
       el('pBar').innerHTML =
         '<div class="seg facts" style="flex-basis:' + fPct + '%">' + (fPct >= 12 ? fPct + '%' : '') + '</div>' +
-        '<div class="seg faith" style="flex-basis:' + hPct + '%">' + (hPct >= 12 ? hPct + '%' : '') + '</div>';
+        '<div class="seg myth" style="flex-basis:' + hPct + '%">' + (hPct >= 12 ? hPct + '%' : '') + '</div>';
     }
   }
 
@@ -302,7 +302,7 @@ function startPresenter() {
     const refs = q.refs.map(function (r) { return '<div>' + r + '</div>'; }).join('');
     el('pAnswer').innerHTML =
       '<div class="answer ' + q.verdict + '">' +
-        '<span class="verdict">' + (q.verdict === 'facts' ? 'Facts' : 'Faith') + '</span>' +
+        '<span class="verdict">' + (q.verdict === 'facts' ? 'Facts' : 'Myth') + '</span>' +
         '<p class="one-liner">' + q.oneLiner + '</p>' +
         '<p class="explain">' + q.explanation + '</p>' +
         '<div class="refs"><strong>Reference' + (q.refs.length > 1 ? 's' : '') + '</strong>' + refs + '</div>' +

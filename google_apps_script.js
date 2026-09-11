@@ -1,5 +1,5 @@
 // ============================================================
-// Google Apps Script — "Facts, or Faith?" live vote backend
+// Google Apps Script — "Facts, or Myth?" live vote backend
 // (extends the BIMSB how_to_single_cell vote collector)
 //
 // SETUP:
@@ -20,8 +20,8 @@
 // Endpoints (all GET):
 //   ?action=state                         -> { currentQuestion }
 //   ?action=setState&q=N&key=KEY          -> sets the live question
-//   ?action=vote&deviceId=&topicId=&vote= -> records a vote (facts|faith)
-//   ?action=results                       -> { deviceCount, results:{id:{facts,faith}} }
+//   ?action=vote&deviceId=&topicId=&vote= -> records a vote (facts|myth)
+//   ?action=results                       -> { deviceCount, results:{id:{facts,myth}} }
 // ============================================================
 
 var PRESENTER_KEY = 'changeme';   // <-- change this; must match ?key= in the presenter URL
@@ -115,7 +115,7 @@ function handleResults() {
   var results = {};
   for (var k in votes) {
     var v = votes[k];
-    if (!results[v.topicId]) results[v.topicId] = { facts: 0, faith: 0 };
+    if (!results[v.topicId]) results[v.topicId] = { facts: 0, myth: 0 };
     if (results[v.topicId][v.vote] !== undefined) results[v.topicId][v.vote]++;
   }
   return json({ status: 'ok', deviceCount: Object.keys(devices).length, results: results });

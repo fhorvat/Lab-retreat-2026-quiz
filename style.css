@@ -1,5 +1,5 @@
 /* ============================================================
-   Facts, or Faith? — live voting app
+   Facts, or Myth? — live voting app
    Visual system ported from BIMSBbioinfo/Course_SystemsBiology
    (how_to_single_cell): system font, card layout, fill-on-select
    vote buttons, blue / amber two-choice palette.
@@ -8,8 +8,8 @@
 :root {
   --facts:        #2563eb;   /* blue  */
   --facts-dark:   #1d4ed8;
-  --faith:        #ea580c;   /* amber */
-  --faith-dark:   #c2410c;
+  --myth:        #ea580c;   /* amber */
+  --myth-dark:   #c2410c;
   --success:      #16a34a;
   --bg:           #f8fafc;
   --card:         #ffffff;
@@ -132,12 +132,12 @@ html, body {
 .vote-btn:active { transform: translateY(1px); }
 
 .vote-btn.facts { border-color: var(--facts); color: var(--facts); }
-.vote-btn.faith { border-color: var(--faith); color: var(--faith); }
+.vote-btn.myth { border-color: var(--myth); color: var(--myth); }
 .vote-btn.facts:hover { background: #eff6ff; }
-.vote-btn.faith:hover { background: #fff7ed; }
+.vote-btn.myth:hover { background: #fff7ed; }
 
 .vote-btn.facts.selected { background: var(--facts); border-color: var(--facts); color: #fff; }
-.vote-btn.faith.selected { background: var(--faith); border-color: var(--faith); color: #fff; }
+.vote-btn.myth.selected { background: var(--myth); border-color: var(--myth); color: #fff; }
 .vote-btn.selected .sub { opacity: 0.92; }
 
 .vote-status {
@@ -198,7 +198,7 @@ html, body {
   overflow: hidden;
 }
 .bar .seg.facts { background: var(--facts); }
-.bar .seg.faith { background: var(--faith); }
+.bar .seg.myth { background: var(--myth); }
 .bar .seg.empty { color: var(--text-light); background: var(--bg); flex: 1; }
 .legend {
   display: flex;
@@ -209,7 +209,7 @@ html, body {
 }
 .legend .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
 .legend .facts .dot { background: var(--facts); }
-.legend .faith .dot { background: var(--faith); }
+.legend .myth .dot { background: var(--myth); }
 
 /* ── PRESENTER: CONTROLS ─────────────────────────────────── */
 .controls {
@@ -251,7 +251,7 @@ html, body {
   background: var(--bg);
 }
 .answer.facts { border-left-color: var(--facts); }
-.answer.faith { border-left-color: var(--faith); }
+.answer.myth { border-left-color: var(--myth); }
 .answer .verdict {
   display: inline-block;
   font-size: 12px;
@@ -264,7 +264,7 @@ html, body {
   margin-bottom: 12px;
 }
 .answer.facts .verdict { background: var(--facts); }
-.answer.faith .verdict { background: var(--faith); }
+.answer.myth .verdict { background: var(--myth); }
 .answer .one-liner { font-weight: 600; margin: 0 0 12px; font-size: 16px; }
 .answer .explain   { margin: 0 0 14px; font-size: 15px; color: #334155; }
 .answer .refs {
