@@ -76,7 +76,7 @@ const QUESTIONS = [
   {
     id: 5,
     tag: 'Comparative cognition · medical diagnostics',
-    text: 'People are better in recognizing tumors in microscope images than pidgeons.',
+    text: 'People are better the pidgeons in recognizing tumors in microscope images.',
     verdict: 'myth',
     oneLiner: 'Trained pigeons matched human performance distinguishing cancerous from healthy breast tissue in a controlled study.',
     explanation: "In a 2015 study, pigeons were trained by operant conditioning to discriminate benign from malignant breast histopathology images and mammograms. Individual pigeons reached about 85% accuracy, and pooling responses from a small flock ('flock sourcing') pushed accuracy close to 99% — on par with expert human pathologists on the same image sets.",
