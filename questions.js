@@ -94,9 +94,6 @@ const QUESTIONS = [
     refs: [
       'Peroutka, S.J. &amp; Peroutka, L.A., <em>New England Journal of Medicine</em> 310 (1984), 599–600 — Autosomal dominant transmission of the photic sneeze reflex.'
     ],
-    media: [
-      { when: 'before', type: 'image', url: 'images/Q6-FB1.png', caption: '<strong>Retrospective ¹⁴C birth-dating of human neurons.</strong> ¹⁴C concentrations in hippocampal-neuron genomic DNA correspond to a time after the individual’s date of birth, taken as evidence for neurogenesis continuing throughout life (Spalding et al., 2013).' }
-    ]
   },
   {
     id: 8,
